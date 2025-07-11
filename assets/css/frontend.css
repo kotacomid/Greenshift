@@ -1,0 +1,353 @@
+/* GreenShift Business AI Generator - Frontend Styles */
+
+.gsba-business-generator {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.gsba-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f2f5;
+}
+
+.gsba-title {
+    color: #1a202c;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gsba-description {
+    color: #718096;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.gsba-form {
+    margin-bottom: 30px;
+}
+
+.gsba-form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.gsba-form-group {
+    margin-bottom: 20px;
+}
+
+.gsba-col-6 {
+    flex: 1;
+}
+
+.gsba-label {
+    display: block;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.gsba-required {
+    color: #e53e3e;
+}
+
+.gsba-input,
+.gsba-select,
+.gsba-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.gsba-input:focus,
+.gsba-select:focus,
+.gsba-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.gsba-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.gsba-examples {
+    background: #f7fafc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-left: 4px solid #667eea;
+}
+
+.gsba-examples h4 {
+    margin: 0 0 15px 0;
+    color: #2d3748;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gsba-example-cards {
+    display: grid;
+    gap: 15px;
+}
+
+.gsba-example-card {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.gsba-example-card strong {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.gsba-example-card p {
+    margin: 8px 0 0 0;
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.gsba-form-actions {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.gsba-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    min-width: 160px;
+}
+
+.gsba-btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.gsba-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.gsba-btn-primary:active {
+    transform: translateY(0);
+}
+
+.gsba-btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.gsba-btn-secondary {
+    background: #ffffff;
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.gsba-btn-secondary:hover {
+    background: #667eea;
+    color: #ffffff;
+}
+
+.gsba-loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.gsba-result {
+    background: #f0fff4;
+    border: 2px solid #9ae6b4;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 25px;
+    animation: slideIn 0.3s ease;
+}
+
+.gsba-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gsba-result-header h4 {
+    margin: 0;
+    color: #22543d;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.gsba-result-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.gsba-result-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #c6f6d5;
+    color: #1a202c;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.gsba-result-content h1,
+.gsba-result-content h2,
+.gsba-result-content h3,
+.gsba-result-content h4,
+.gsba-result-content h5,
+.gsba-result-content h6 {
+    color: #2d3748;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.gsba-result-content h1:first-child,
+.gsba-result-content h2:first-child,
+.gsba-result-content h3:first-child {
+    margin-top: 0;
+}
+
+.gsba-result-content p {
+    margin-bottom: 15px;
+}
+
+.gsba-result-content ul,
+.gsba-result-content ol {
+    margin-bottom: 15px;
+    padding-left: 25px;
+}
+
+.gsba-result-content li {
+    margin-bottom: 5px;
+}
+
+.gsba-result-meta {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #c6f6d5;
+}
+
+.gsba-tokens-info {
+    color: #22543d;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.gsba-error {
+    background: #fed7d7;
+    border: 2px solid #feb2b2;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 25px;
+    animation: slideIn 0.3s ease;
+}
+
+.gsba-error-content {
+    color: #742a2a;
+    font-weight: 500;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gsba-business-generator {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .gsba-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .gsba-title {
+        font-size: 24px;
+    }
+    
+    .gsba-result-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .gsba-result-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .gsba-example-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .gsba-business-generator {
+        padding: 15px;
+        margin: 5px;
+    }
+    
+    .gsba-btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+    
+    .gsba-result-actions {
+        flex-direction: column;
+    }
+}
