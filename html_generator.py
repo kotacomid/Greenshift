@@ -365,8 +365,10 @@ class HTMLGenerator:
                 
                 <div class="book-header">
                     <div class="book-cover">
-                        {% if book.cover %}
-                        <img src="{{ book.cover }}" alt="{{ book.title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                        {% if book.cover_drive_link %}
+                        <img src="{{ book.cover_drive_link.replace('/view?', '/uc?').replace('&usp=sharing', '') }}" alt="{{ book.title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.parentNode.innerHTML='📖';">
+                        {% elif book.cover %}
+                        <img src="{{ book.cover }}" alt="{{ book.title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" onerror="this.style.display='none'; this.parentNode.innerHTML='📖';">
                         {% else %}
                         📖
                         {% endif %}
@@ -412,7 +414,13 @@ class HTMLGenerator:
                     <div class="download-links">
                         {% if book.drive_link %}
                         <a href="{{ book.drive_link }}" class="download-btn" target="_blank">
-                            📁 View in Drive
+                            📁 Book in Drive
+                        </a>
+                        {% endif %}
+                        
+                        {% if book.cover_drive_link %}
+                        <a href="{{ book.cover_drive_link }}" class="download-btn" target="_blank">
+                            📸 Cover in Drive
                         </a>
                         {% endif %}
                         
@@ -422,7 +430,7 @@ class HTMLGenerator:
                         </a>
                         {% endif %}
                         
-                        {% if not book.drive_link and not book.url %}
+                        {% if not book.drive_link and not book.cover_drive_link and not book.url %}
                         <span class="download-btn disabled">No links available</span>
                         {% endif %}
                     </div>

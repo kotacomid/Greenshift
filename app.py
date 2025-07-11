@@ -448,10 +448,14 @@ def download_books():
         for book in pending_books[:5]:
             try:
                 csv_manager.update_book_status(book['id'], 'downloading')
-                local_path = async_to_sync(zlib_manager.download_book(book))
+                download_result = async_to_sync(zlib_manager.download_book(book))
                 
-                if local_path:
-                    csv_manager.update_book_status(book['id'], 'completed', local_path=local_path)
+                if download_result['success']:
+                    update_data = {'local_path': download_result['book_path']}
+                    if download_result['cover_path']:
+                        update_data['cover_local_path'] = download_result['cover_path']
+                    
+                    csv_manager.update_book_status(book['id'], 'completed', **update_data)
                     downloaded_count += 1
                 else:
                     csv_manager.update_book_status(book['id'], 'error')
@@ -485,13 +489,27 @@ def upload_to_drive():
         uploaded_count = 0
         for book in books_to_upload[:3]:
             try:
-                local_path = book['local_path']
-                file_name = f"{book['title']}.{book['extension']}".replace('/', '_').replace('\\', '_')
+                from utils import generate_book_filename, generate_cover_filename
                 
-                drive_link = drive_manager.upload_and_share(local_path, file_name)
+                book_path = book['local_path']
+                cover_path = book.get('cover_local_path', '')
                 
-                if drive_link:
-                    csv_manager.update_book_status(book['id'], 'completed', drive_link=drive_link)
+                book_filename = generate_book_filename(book)
+                cover_filename = generate_cover_filename(book) if cover_path else None
+                
+                upload_result = drive_manager.upload_book_and_cover(
+                    book_path=book_path,
+                    cover_path=cover_path if cover_path and os.path.exists(cover_path) else None,
+                    book_name=book_filename,
+                    cover_name=cover_filename
+                )
+                
+                if upload_result['success']:
+                    update_data = {'drive_link': upload_result['book_link']}
+                    if upload_result['cover_link']:
+                        update_data['cover_drive_link'] = upload_result['cover_link']
+                    
+                    csv_manager.update_book_status(book['id'], 'completed', **update_data)
                     uploaded_count += 1
             except Exception as e:
                 print(f"Upload error: {e}")

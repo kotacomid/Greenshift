@@ -5,9 +5,9 @@
 Aplikasi lengkap untuk mengautomasi workflow Z-Library yang mencakup:
 1. **Login dan Search** - Otentikasi dan pencarian buku
 2. **Store Metadata di CSV** - Menyimpan metadata buku
-3. **Download Files** - Download buku dan update status
-4. **Upload ke Google Drive** - Upload file dan dapatkan link
-5. **Generate HTML Catalog** - Membuat katalog web responsif
+3. **Download Files & Covers** - Download buku dan cover dengan smart naming
+4. **Upload ke Google Drive** - Upload file dan cover, dapatkan link
+5. **Generate HTML Catalog** - Membuat katalog web responsif dengan cover preview
 
 ## 🏗️ Architecture
 
@@ -53,7 +53,8 @@ z-library-automation/
 │   ├── zlibrary_manager.py     # Z-Library operations
 │   ├── csv_manager.py          # CSV data management
 │   ├── drive_manager.py        # Google Drive operations
-│   └── html_generator.py       # HTML generation
+│   ├── html_generator.py       # HTML generation
+│   └── utils.py                # File naming & cross-platform utilities
 │
 ├── ⚙️ Configuration
 │   ├── .env.example           # Environment template
@@ -94,15 +95,20 @@ books = await zlib_manager.search_books(query, count)
 csv_manager.add_books(books)
 ```
 
-### 3. Download Files
+### 3. Download Files & Covers
 ```python
 # Get pending books
 pending_books = csv_manager.get_books_by_status('pending')
 
-# Download each book
+# Download each book and cover
 for book in pending_books:
-    local_path = await zlib_manager.download_book(book)
-    csv_manager.update_book_status(book['id'], 'completed', local_path=local_path)
+    download_result = await zlib_manager.download_book(book)
+    if download_result['success']:
+        update_data = {
+            'local_path': download_result['book_path'],
+            'cover_local_path': download_result['cover_path']
+        }
+        csv_manager.update_book_status(book['id'], 'completed', **update_data)
 ```
 
 ### 4. Upload to Google Drive
@@ -110,10 +116,18 @@ for book in pending_books:
 # Get completed books
 completed_books = csv_manager.get_books_by_status('completed')
 
-# Upload to Drive
+# Upload book and cover to Drive
 for book in completed_books:
-    drive_link = drive_manager.upload_and_share(book['local_path'])
-    csv_manager.update_book_status(book['id'], 'completed', drive_link=drive_link)
+    upload_result = drive_manager.upload_book_and_cover(
+        book_path=book['local_path'],
+        cover_path=book['cover_local_path']
+    )
+    if upload_result['success']:
+        update_data = {
+            'drive_link': upload_result['book_link'],
+            'cover_drive_link': upload_result['cover_link']
+        }
+        csv_manager.update_book_status(book['id'], 'completed', **update_data)
 ```
 
 ### 5. Generate HTML Catalog

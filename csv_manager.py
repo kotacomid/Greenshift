@@ -13,7 +13,8 @@ class CSVManager:
             'id', 'title', 'authors', 'year', 'publisher', 'language', 
             'extension', 'size', 'rating', 'url', 'cover', 'isbn',
             'search_query', 'download_status', 'download_url', 'local_path', 
-            'drive_link', 'added_date', 'updated_date'
+            'drive_link', 'cover_local_path', 'cover_drive_link', 
+            'added_date', 'updated_date'
         ]
         self.initialize_csv()
     
@@ -96,6 +97,8 @@ class CSVManager:
                         'download_url': book.get('download_url', ''),
                         'local_path': book.get('local_path', ''),
                         'drive_link': book.get('drive_link', ''),
+                        'cover_local_path': book.get('cover_local_path', ''),
+                        'cover_drive_link': book.get('cover_drive_link', ''),
                         'added_date': current_time,
                         'updated_date': current_time
                     }

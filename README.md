@@ -7,16 +7,19 @@ Aplikasi otomatis untuk mengelola workflow Z-Library yang mencakup pencarian, do
 ### Workflow Lengkap:
 1. **Login dan Search** - Otentikasi ke Z-Library dan pencarian buku
 2. **Store Metadata di CSV** - Simpan metadata buku yang dipilih 
-3. **Download File** - Download buku dan update status di CSV
-4. **Upload ke Google Drive** - Upload file ke Drive dan dapatkan link
-5. **Generate HTML Catalog** - Buat katalog HTML dengan link Drive
+3. **Download File & Cover** - Download buku dan cover dengan nama konsisten (max 160 karakter)
+4. **Upload ke Google Drive** - Upload file dan cover ke Drive, dapatkan link
+5. **Generate HTML Catalog** - Buat katalog HTML dengan link Drive dan preview cover
 
 ### Fitur Tambahan:
+- ✅ **Cover Download & Upload** - Download dan upload cover buku otomatis
+- ✅ **Smart File Naming** - Nama file "Judul - Author" max 160 karakter, Windows compatible
 - ✅ **Web Dashboard** - Interface web modern untuk mengelola koleksi
 - ✅ **Command Line Interface** - Untuk automasi dan scripting
-- ✅ **Google Drive Integration** - Upload otomatis dan link sharing
-- ✅ **HTML Catalog Generator** - Katalog responsif dengan filter dan search
+- ✅ **Google Drive Integration** - Upload otomatis book & cover dengan link sharing
+- ✅ **HTML Catalog Generator** - Katalog responsif dengan cover preview dan filter
 - ✅ **CSV Data Management** - Tracking status dan metadata lengkap
+- ✅ **Cross-Platform Support** - Windows, Linux, macOS compatible
 - ✅ **cPanel Deployment Ready** - Siap deploy di hosting shared
 
 ## 📋 Requirements
@@ -24,6 +27,7 @@ Aplikasi otomatis untuk mengelola workflow Z-Library yang mencakup pencarian, do
 - Python 3.7+
 - Z-Library account (email & password)
 - Google Drive API credentials (opsional)
+- Windows 10+, Linux, atau macOS
 - cPanel hosting dengan Python support (untuk deployment)
 
 ## 🛠️ Instalasi
@@ -163,25 +167,28 @@ z-library-automation/
 - Parse metadata (title, authors, year, publisher, dll.)
 - Simpan ke CSV dengan status 'pending'
 
-### 2. Download Books
+### 2. Download Books & Covers
 - Ambil buku dengan status 'pending' dari CSV
-- Download file dari Z-Library
+- Download file buku dari Z-Library dengan nama "Judul - Author.ext" (max 160 karakter)
+- Download cover buku dengan nama yang sama + ".jpg"
+- Nama file Windows-compatible (tanpa karakter invalid)
 - Update status ke 'completed' dan simpan local path
 - Handle error dan update status ke 'error' jika gagal
 
 ### 3. Upload to Google Drive
 - Ambil buku dengan status 'completed' yang belum di-upload
-- Upload file ke Google Drive folder
-- Set permission public dan dapatkan shareable link
-- Update CSV dengan Drive link
+- Upload file buku dan cover ke Google Drive folder
+- Set permission public dan dapatkan shareable link untuk keduanya
+- Update CSV dengan Drive link buku dan cover
 
 ### 4. Generate HTML Catalog
 - Baca semua data dari CSV
 - Generate HTML catalog responsif dengan:
   - Search dan filter functionality
   - Statistics dashboard
-  - Book grid dengan cover images
-  - Drive links dan Z-Library links
+  - Book grid dengan cover preview dari Google Drive
+  - Separate links untuk book dan cover di Drive
+  - Z-Library links
   - Mobile-responsive design
 
 ## 🌐 Web Dashboard Features
@@ -222,7 +229,8 @@ File CSV memiliki kolom:
 - `language`, `extension`, `size`, `rating`
 - `url`, `cover`, `isbn`, `search_query`
 - `download_status`, `download_url`, `local_path`
-- `drive_link`, `added_date`, `updated_date`
+- `drive_link`, `cover_local_path`, `cover_drive_link`
+- `added_date`, `updated_date`
 
 ### Status Values
 - `pending` - Belum di-download

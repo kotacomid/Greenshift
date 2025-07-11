@@ -137,22 +137,34 @@ class ZLibraryAutomation:
                 # Update status to downloading
                 self.csv_manager.update_book_status(book['id'], 'downloading')
                 
-                # Download the book
-                local_path = await self.zlib_manager.download_book(book)
+                # Download the book and cover
+                download_result = await self.zlib_manager.download_book(book)
                 
-                if local_path:
+                if download_result['success']:
                     # Update CSV with success
+                    update_data = {
+                        'local_path': download_result['book_path']
+                    }
+                    
+                    # Add cover path if downloaded
+                    if download_result['cover_path']:
+                        update_data['cover_local_path'] = download_result['cover_path']
+                    
                     self.csv_manager.update_book_status(
                         book['id'], 
                         'completed',
-                        local_path=local_path
+                        **update_data
                     )
                     downloaded_count += 1
                     print(f"✅ Downloaded: {book['title']}")
+                    
+                    if download_result['cover_path']:
+                        print(f"📸 Cover downloaded: {os.path.basename(download_result['cover_path'])}")
                 else:
                     # Update CSV with error
                     self.csv_manager.update_book_status(book['id'], 'error')
-                    print(f"❌ Failed to download: {book['title']}")
+                    error_msg = download_result.get('error', 'Unknown error')
+                    print(f"❌ Failed to download: {book['title']} - {error_msg}")
                 
             except Exception as e:
                 print(f"❌ Error downloading {book['title']}: {str(e)}")
@@ -192,24 +204,46 @@ class ZLibraryAutomation:
         uploaded_count = 0
         for book in books_to_upload:
             try:
-                local_path = book['local_path']
-                file_name = f"{book['title']}.{book['extension']}".replace('/', '_').replace('\\', '_')
+                from utils import generate_book_filename, generate_cover_filename
                 
-                # Upload to Google Drive
-                drive_link = self.drive_manager.upload_and_share(local_path, file_name)
+                book_path = book['local_path']
+                cover_path = book.get('cover_local_path', '')
                 
-                if drive_link:
-                    # Update CSV with Drive link
+                # Generate filenames for Drive
+                book_filename = generate_book_filename(book)
+                cover_filename = generate_cover_filename(book) if cover_path else None
+                
+                # Upload book and cover to Google Drive
+                upload_result = self.drive_manager.upload_book_and_cover(
+                    book_path=book_path,
+                    cover_path=cover_path if cover_path and os.path.exists(cover_path) else None,
+                    book_name=book_filename,
+                    cover_name=cover_filename
+                )
+                
+                if upload_result['success']:
+                    # Update CSV with Drive links
+                    update_data = {
+                        'drive_link': upload_result['book_link']
+                    }
+                    
+                    if upload_result['cover_link']:
+                        update_data['cover_drive_link'] = upload_result['cover_link']
+                    
                     self.csv_manager.update_book_status(
                         book['id'],
                         'completed',
-                        drive_link=drive_link
+                        **update_data
                     )
                     uploaded_count += 1
                     print(f"✅ Uploaded to Drive: {book['title']}")
-                    print(f"🔗 Drive link: {drive_link}")
+                    print(f"🔗 Book link: {upload_result['book_link']}")
+                    
+                    if upload_result['cover_link']:
+                        print(f"📸 Cover link: {upload_result['cover_link']}")
                 else:
-                    print(f"❌ Failed to upload: {book['title']}")
+                    error_msg = upload_result.get('error', 'Unknown error')
+                    print(f"❌ Failed to upload: {book['title']} - {error_msg}")
                 
             except Exception as e:
                 print(f"❌ Error uploading {book['title']}: {str(e)}")

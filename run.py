@@ -31,6 +31,7 @@ def print_menu():
     print("7. 📊 Show Statistics - Display collection stats")
     print("8. ⚙️ Setup - Run initial setup")
     print("9. 🧪 Test Connection - Test Z-Library and Drive connections")
+    print("10. 📝 Test File Naming - Test file naming system")
     print("0. ❌ Exit")
     print()
 
@@ -231,6 +232,16 @@ def run_setup():
     except Exception as e:
         print(f"❌ Setup error: {e}")
 
+def test_file_naming():
+    """Test file naming system"""
+    print("📝 Testing file naming system...\n")
+    
+    try:
+        import test_naming
+        test_naming.main()
+    except Exception as e:
+        print(f"❌ File naming test error: {e}")
+
 async def main():
     """Main function"""
     # Check for command line arguments
@@ -253,9 +264,11 @@ async def main():
             await upload_only()
         elif arg in ['html', 'generate']:
             generate_html()
+        elif arg in ['naming', 'test-naming']:
+            test_file_naming()
         elif arg in ['help', 'h', '--help']:
             print("Usage: python run.py [mode]")
-            print("Modes: web, interactive, test, stats, setup, download, upload, html")
+            print("Modes: web, interactive, test, stats, setup, download, upload, html, naming")
         else:
             print(f"❌ Unknown mode: {arg}")
             print("Use 'python run.py help' for available modes")
@@ -269,7 +282,7 @@ async def main():
         print_menu()
         
         try:
-            choice = input("👆 Select option (0-9): ").strip()
+            choice = input("👆 Select option (0-10): ").strip()
             
             if choice == '0':
                 print("👋 Goodbye!")
@@ -292,6 +305,8 @@ async def main():
                 run_setup()
             elif choice == '9':
                 await test_connections()
+            elif choice == '10':
+                test_file_naming()
             else:
                 print("❌ Invalid choice. Please try again.")
                 

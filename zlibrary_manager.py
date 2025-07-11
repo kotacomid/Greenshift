@@ -5,6 +5,7 @@ import os
 import aiohttp
 from typing import List, Dict, Optional
 from config import Config
+from utils import generate_book_filename, generate_cover_filename, ensure_directory, get_file_extension_from_url
 
 class ZLibraryManager:
     """Manager class for Z-Library operations"""
@@ -141,43 +142,94 @@ class ZLibraryManager:
             print(f"❌ Failed to get book details: {str(e)}")
             return None
     
-    async def download_book(self, book_data: Dict, download_path: str = None) -> str:
+    async def download_cover(self, book_data: Dict, download_path: str = None) -> str:
         """
-        Download a book file
+        Download book cover image
         
         Args:
             book_data: Book metadata dictionary
-            download_path: Path to save the downloaded file
+            download_path: Path to save the downloaded cover
             
         Returns:
-            str: Path to downloaded file or empty string if failed
+            str: Path to downloaded cover or empty string if failed
+        """
+        try:
+            download_path = download_path or Config.DOWNLOAD_PATH
+            download_path = ensure_directory(download_path)
+            
+            cover_url = book_data.get('cover', '')
+            if not cover_url:
+                print(f"❌ No cover URL available for book: {book_data['title']}")
+                return ""
+            
+            # Generate cover filename
+            cover_filename = generate_cover_filename(book_data)
+            cover_filepath = os.path.join(download_path, cover_filename)
+            
+            print(f"📸 Downloading cover: {book_data['title']}...")
+            
+            # Download the cover
+            async with aiohttp.ClientSession() as session:
+                async with session.get(cover_url) as response:
+                    if response.status == 200:
+                        with open(cover_filepath, 'wb') as f:
+                            async for chunk in response.content.iter_chunked(8192):
+                                f.write(chunk)
+                        
+                        print(f"✅ Downloaded cover: {cover_filename}")
+                        return cover_filepath
+                    else:
+                        print(f"❌ Failed to download cover {cover_filename}. Status: {response.status}")
+                        return ""
+            
+        except Exception as e:
+            print(f"❌ Failed to download cover: {str(e)}")
+            return ""
+
+    async def download_book(self, book_data: Dict, download_path: str = None) -> Dict:
+        """
+        Download a book file and its cover
+        
+        Args:
+            book_data: Book metadata dictionary
+            download_path: Path to save the downloaded files
+            
+        Returns:
+            Dict: Download results with file paths
         """
         if not self.is_authenticated:
             raise Exception("Not authenticated. Please login first.")
         
+        result = {
+            'success': False,
+            'book_path': '',
+            'cover_path': '',
+            'error': ''
+        }
+        
         try:
             download_path = download_path or Config.DOWNLOAD_PATH
-            os.makedirs(download_path, exist_ok=True)
+            download_path = ensure_directory(download_path)
             
             # Get detailed book information with download URL
             detailed_book = await self.get_book_details(book_data['id'])
             if not detailed_book:
-                return ""
+                result['error'] = "Could not get book details"
+                return result
             
             download_url = detailed_book.get('download_url', '')
             if not download_url:
-                print(f"❌ No download URL available for book: {book_data['title']}")
-                return ""
+                result['error'] = f"No download URL available for book: {book_data['title']}"
+                print(f"❌ {result['error']}")
+                return result
             
-            # Generate filename
-            title = book_data['title'].replace('/', '_').replace('\\', '_')
-            extension = book_data.get('extension', 'pdf').lower()
-            filename = f"{title}.{extension}"
+            # Generate filename using utils
+            filename = generate_book_filename(book_data)
             filepath = os.path.join(download_path, filename)
             
             print(f"⬇️ Downloading: {book_data['title']}...")
             
-            # Download the file
+            # Download the book file
             async with aiohttp.ClientSession() as session:
                 async with session.get(download_url) as response:
                     if response.status == 200:
@@ -186,14 +238,24 @@ class ZLibraryManager:
                                 f.write(chunk)
                         
                         print(f"✅ Downloaded: {filename}")
-                        return filepath
+                        result['book_path'] = filepath
+                        result['success'] = True
                     else:
-                        print(f"❌ Failed to download {filename}. Status: {response.status}")
-                        return ""
+                        result['error'] = f"Failed to download {filename}. Status: {response.status}"
+                        print(f"❌ {result['error']}")
+                        return result
+            
+            # Download cover
+            cover_path = await self.download_cover(book_data, download_path)
+            if cover_path:
+                result['cover_path'] = cover_path
+            
+            return result
             
         except Exception as e:
+            result['error'] = str(e)
             print(f"❌ Failed to download book: {str(e)}")
-            return ""
+            return result
     
     async def close(self):
         """Close the Z-Library connection"""

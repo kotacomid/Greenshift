@@ -200,6 +200,54 @@ class DriveManager:
             print(f"❌ Failed to get file link: {str(e)}")
             return None
     
+    def upload_book_and_cover(self, book_path: str, cover_path: str = None, book_name: str = None, cover_name: str = None, folder_id: str = None) -> Dict:
+        """
+        Upload book file and cover to Google Drive
+        
+        Args:
+            book_path: Local path to book file
+            cover_path: Local path to cover file (optional)
+            book_name: Name for book file in Drive (optional)
+            cover_name: Name for cover file in Drive (optional)  
+            folder_id: ID of folder to upload to (optional)
+            
+        Returns:
+            Dict: Upload results with links
+        """
+        result = {
+            'success': False,
+            'book_link': '',
+            'cover_link': '',
+            'error': ''
+        }
+        
+        try:
+            # Upload book file
+            book_link = self.upload_and_share(book_path, book_name, folder_id)
+            if book_link:
+                result['book_link'] = book_link
+                result['success'] = True
+                print(f"✅ Book uploaded to Drive")
+            else:
+                result['error'] = "Failed to upload book"
+                return result
+            
+            # Upload cover if provided
+            if cover_path and os.path.exists(cover_path):
+                cover_link = self.upload_and_share(cover_path, cover_name, folder_id)
+                if cover_link:
+                    result['cover_link'] = cover_link
+                    print(f"✅ Cover uploaded to Drive")
+                else:
+                    print(f"⚠️ Failed to upload cover, but book upload succeeded")
+            
+            return result
+            
+        except Exception as e:
+            result['error'] = str(e)
+            print(f"❌ Failed to upload files: {str(e)}")
+            return result
+
     def upload_and_share(self, file_path: str, file_name: str = None, folder_id: str = None) -> Optional[str]:
         """
         Upload a file and get its shareable link
