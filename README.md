@@ -1,235 +1,391 @@
-# GreenShift Business AI Generator
+# 🚀 GreenShift Business AI Generator - Complete MVP
 
-![WordPress Plugin Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![WordPress Compatibility](https://img.shields.io/badge/wordpress-6.0+-green.svg)
-![PHP Compatibility](https://img.shields.io/badge/php-7.4+-blue.svg)
-![License](https://img.shields.io/badge/license-GPL2+-red.svg)
+**AI-Powered Business Website Builder with GreenShift Integration**
 
-Plugin WordPress yang memungkinkan pengguna menghasilkan konten bisnis profesional menggunakan AI hanya dengan memasukkan nama bisnis, jenis bisnis, dan deskripsi singkat.
+Generate professional business pages instantly using AI. Input your business details, select a template, and watch as AI creates beautiful, fully-optimized pages with GreenShift blocks.
 
-## 🚀 Fitur Utama
+## ✨ Features
 
-- **Integrasi Multi-AI**: Dukungan OpenAI GPT-3.5, Claude 3 Sonnet, dan Google Gemini Pro
-- **Generator Konten Bisnis**: 10+ jenis konten bisnis (About Us, Mission/Vision, Services, FAQ, dll.)
-- **Integrasi GreenShift**: Kompatibel dengan plugin GreenShift untuk styling lanjutan
-- **Blok Gutenberg**: Tersedia sebagai blok Gutenberg yang mudah digunakan
-- **Shortcode Support**: Gunakan `[gsba_business_generator]` di mana saja
-- **Responsif & Modern**: Interface yang indah dan responsif
-- **Copy to Clipboard**: Salin hasil AI dengan satu klik
-- **Form Validation**: Validasi form yang komprehensif
+### 🎯 Core Features
+- **AI-Powered Content Generation** - Support for OpenAI, Claude, and Gemini
+- **Template-Based System** - Pre-built templates for Landing, About, and Pricing pages
+- **User-Friendly Dashboard** - Intuitive interface for all users
+- **Real-Time Page Generation** - Creates WordPress pages with GreenShift blocks
+- **Automatic SEO Optimization** - Built-in SEO with meta tags and schema markup
+- **Logo & Branding Integration** - Upload logos and set brand colors
+- **Social Media Integration** - Add social media links automatically
 
-## 📋 Prasyarat
+### 🔧 Admin Features
+- **Template Management** - Create, edit, and delete custom templates
+- **API Configuration** - Easy setup for multiple AI providers
+- **Usage Statistics** - Track generated pages and user activity
+- **Multi-AI Support** - Switch between different AI models
 
-- WordPress 6.0 atau lebih baru
-- PHP 7.4 atau lebih baru
-- Setidaknya satu API key dari provider AI (OpenAI, Claude, atau Gemini)
+### 🎨 Templates Included
+1. **Modern Business Landing** - Hero section, features, about preview, contact
+2. **Professional About Us** - Company story, mission, vision, values, team
+3. **Clear Pricing Page** - Service packages, pricing tiers, FAQ section
 
-## 🔧 Instalasi
+## 📦 Installation
 
-### Metode 1: Upload Manual
+### Prerequisites
+- WordPress 6.0+
+- PHP 7.4+
+- GreenShift plugin (recommended)
+- At least one AI API key (OpenAI, Claude, or Gemini)
 
-1. Download file plugin ini
-2. Upload folder plugin ke direktori `/wp-content/plugins/`
-3. Aktifkan plugin melalui menu 'Plugins' di WordPress admin
-4. Buka **Settings > Business AI Generator** untuk konfigurasi
+### Installation Steps
 
-### Metode 2: Install dari Admin
+1. **Upload Plugin Files**
+   ```bash
+   # Upload to WordPress plugins directory
+   wp-content/plugins/greenshift-business-ai-generator/
+   ```
 
-1. Buka WordPress admin > Plugins > Add New
-2. Upload file ZIP plugin
-3. Install dan aktifkan plugin
-4. Konfigurasi API keys di halaman settings
+2. **Activate Plugin**
+   - Go to WordPress Admin → Plugins
+   - Find "GreenShift Business AI Generator"
+   - Click "Activate"
 
-## ⚙️ Konfigurasi
+3. **Configure API Keys**
+   - Go to WordPress Admin → AI Business Gen → Settings
+   - Add your preferred AI API key:
+     - **OpenAI**: Get from [OpenAI Platform](https://platform.openai.com/api-keys)
+     - **Claude**: Get from [Anthropic Console](https://console.anthropic.com/)
+     - **Gemini**: Get from [Google AI Studio](https://makersuite.google.com/app/apikey)
 
-### 1. Mendapatkan API Keys
+4. **Start Generating Pages**
+   - Go to WordPress Admin → AI Business Gen
+   - Click "Generate Page"
+   - Follow the 3-step wizard
 
-#### OpenAI API Key
-1. Buka [OpenAI Platform](https://platform.openai.com/api-keys)
-2. Buat akun atau login
-3. Generate API key baru
-4. Copy API key
+## 🗄️ Database Schema
 
-#### Claude API Key
-1. Buka [Anthropic Console](https://console.anthropic.com/)
-2. Buat akun atau login
-3. Generate API key
-4. Copy API key
+The plugin creates 3 custom tables to manage business data, templates, and generated pages:
 
-#### Gemini API Key
-1. Buka [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Buat akun atau login dengan Google
-3. Generate API key
-4. Copy API key
-
-### 2. Konfigurasi Plugin
-
-1. Buka **WordPress Admin > Settings > Business AI Generator**
-2. Masukkan setidaknya satu API key
-3. Pilih default AI model
-4. Atur max tokens (100-4000)
-5. Atur temperature (0-1)
-6. Klik **Save Settings**
-
-## 📖 Cara Penggunaan
-
-### Menggunakan Shortcode
-
-Tambahkan shortcode berikut di post, page, atau widget:
-
+### Business Profiles Table
+```sql
+CREATE TABLE wp_gsba_business_profiles (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    user_id bigint(20) NOT NULL,
+    business_name varchar(255) NOT NULL,
+    business_type varchar(100) NOT NULL,
+    description text NOT NULL,
+    logo_url varchar(500) DEFAULT '',
+    primary_color varchar(7) DEFAULT '#667eea',
+    secondary_color varchar(7) DEFAULT '#764ba2',
+    website_url varchar(500) DEFAULT '',
+    phone varchar(50) DEFAULT '',
+    email varchar(100) DEFAULT '',
+    address text DEFAULT '',
+    tagline varchar(255) DEFAULT '',
+    social_media longtext DEFAULT '',
+    created_at datetime DEFAULT CURRENT_TIMESTAMP,
+    updated_at datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    KEY user_id (user_id)
+);
 ```
-[gsba_business_generator]
+
+### Templates Table
+```sql
+CREATE TABLE wp_gsba_templates (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    name varchar(255) NOT NULL,
+    type varchar(50) NOT NULL,
+    description text DEFAULT '',
+    preview_image varchar(500) DEFAULT '',
+    block_structure longtext NOT NULL,
+    seo_config longtext DEFAULT '',
+    created_by bigint(20) NOT NULL,
+    status varchar(20) DEFAULT 'active',
+    created_at datetime DEFAULT CURRENT_TIMESTAMP,
+    updated_at datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    KEY type (type),
+    KEY status (status)
+);
 ```
 
-#### Shortcode dengan Parameter
-
+### Generated Pages Table
+```sql
+CREATE TABLE wp_gsba_generated_pages (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    user_id bigint(20) NOT NULL,
+    business_profile_id int(11) NOT NULL,
+    template_id int(11) NOT NULL,
+    page_id bigint(20) NOT NULL,
+    generated_content longtext NOT NULL,
+    ai_model_used varchar(50) DEFAULT '',
+    seo_data longtext DEFAULT '',
+    created_at datetime DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    KEY user_id (user_id),
+    KEY page_id (page_id),
+    KEY template_id (template_id)
+);
 ```
-[gsba_business_generator title="AI Generator Bisnis" show_examples="true" style="modern"]
+
+## 🎮 Usage Guide
+
+### For Users (Generate Pages)
+
+1. **Access Dashboard**
+   - Go to WordPress Admin → AI Business Gen
+   - Or click "🤖 AI Generator" in admin bar
+
+2. **Generate New Page**
+   - Click "Generate Page" button
+   - Follow 3-step wizard:
+
+   **Step 1: Choose Template**
+   - Select from available templates
+   - Preview template designs
+
+   **Step 2: Business Information**
+   - Enter business name (required)
+   - Select business type (required)
+   - Add business description (required)
+   - Set tagline (optional)
+
+   **Step 3: Contact & Branding**
+   - Add contact information
+   - Upload logo
+   - Set brand colors
+   - Add social media links
+
+3. **AI Generation**
+   - Click "Generate Page with AI"
+   - Wait for AI to create content
+   - View/edit generated page
+
+### For Admins (Manage Templates)
+
+1. **Template Management**
+   - Go to AI Business Gen → Templates
+   - View existing templates
+   - Add new templates
+   - Edit existing templates
+
+2. **Settings Configuration**
+   - Go to AI Business Gen → Settings
+   - Configure AI API keys
+   - Set generation parameters
+   - View usage statistics
+
+## 🏗️ Architecture
+
+### File Structure
+```
+greenshift-business-ai-generator/
+├── greenshift-business-ai-generator.php    # Main plugin file
+├── includes/
+│   ├── class-database.php                  # Database operations
+│   ├── class-ai-generator.php              # AI content generation
+│   ├── class-template-manager.php          # Template management
+│   ├── class-page-generator.php            # WordPress page creation
+│   ├── class-seo-optimizer.php             # SEO optimization
+│   └── pages/
+│       ├── dashboard.php                   # Main dashboard
+│       ├── templates.php                   # Template management
+│       └── settings.php                    # Plugin settings
+├── assets/
+│   ├── css/
+│   │   ├── admin.css                       # Admin interface styles
+│   │   └── frontend.css                    # Frontend styles
+│   └── js/
+│       ├── admin.js                        # Admin functionality
+│       └── frontend.js                     # Frontend interactions
+└── README.md                               # Documentation
 ```
 
-**Parameter yang tersedia:**
-- `title`: Judul generator (default: "Business AI Generator")
-- `show_examples`: Tampilkan contoh (true/false, default: true)
-- `style`: Gaya tampilan (default/compact/modern, default: default)
+### Data Flow
+```
+User Input → AI Generator → Content Processing → GreenShift Blocks → WordPress Page → SEO Optimization
+```
 
-### Menggunakan Blok Gutenberg
+## 🎨 Template Customization
 
-1. Buka editor Gutenberg
-2. Klik tombol **+** untuk menambah blok
-3. Cari "Business AI Generator"
-4. Tambahkan blok ke halaman
-5. Konfigurasi pengaturan di sidebar
+### Creating Custom Templates
 
-### Menggunakan dengan GreenShift
+Templates use GreenShift block structure with placeholder variables:
 
-Jika Anda menggunakan plugin GreenShift, blok AI Generator akan otomatis tersedia di panel blok GreenShift dengan styling dan opsi tambahan.
+```json
+{
+    "blockName": "greenshift-blocks/container",
+    "attrs": {
+        "background": "linear-gradient(135deg, {primary_color}, {secondary_color})",
+        "padding": "100px 20px"
+    },
+    "innerBlocks": [
+        {
+            "blockName": "core/heading",
+            "attrs": {
+                "content": "{hero_headline}",
+                "level": 1
+            }
+        }
+    ]
+}
+```
 
-## 🎯 Jenis Konten yang Didukung
+### Available Placeholders
 
-1. **About Us Section** - Bagian tentang perusahaan
-2. **Mission & Vision** - Pernyataan misi dan visi
-3. **Services Description** - Deskripsi layanan
-4. **Hero Section** - Konten hero/banner utama
-5. **Features & Benefits** - Fitur dan keunggulan
-6. **Customer Testimonials** - Testimoni pelanggan
-7. **FAQ Section** - Pertanyaan yang sering diajukan
-8. **Contact Information** - Informasi kontak
-9. **Blog Posts** - Artikel blog
-10. **Product Descriptions** - Deskripsi produk
+**Business Data:**
+- `{business_name}` - Business name
+- `{business_type}` - Type of business
+- `{description}` - Business description
+- `{logo_url}` - Logo image URL
+- `{primary_color}` - Primary brand color
+- `{secondary_color}` - Secondary brand color
+- `{phone}` - Phone number
+- `{email}` - Email address
+- `{website_url}` - Website URL
 
-## 🏢 Jenis Bisnis yang Didukung
+**AI Generated Content:**
+- `{hero_headline}` - AI-generated headline
+- `{hero_subheading}` - AI-generated subheading
+- `{feature_1_title}` - First feature title
+- `{feature_1_description}` - First feature description
+- `{about_heading}` - About section heading
+- `{contact_heading}` - Contact section heading
 
-- Restaurant (Restoran)
-- Retail Store (Toko Retail)
-- Consulting (Konsultan)
-- Technology (Teknologi)
-- Healthcare (Kesehatan)
-- Real Estate (Properti)
-- Law Firm (Firma Hukum)
-- Fitness & Wellness
-- Education (Pendidikan)
-- Automotive (Otomotif)
-- Construction (Konstruksi)
-- Beauty & Salon
-- Travel & Tourism (Perjalanan & Pariwisata)
-- Financial Services (Layanan Keuangan)
-- Marketing Agency (Agensi Pemasaran)
-- Dan lainnya...
+## 🔧 API Configuration
 
-## 💡 Contoh Penggunaan
+### OpenAI Setup
+```php
+// Required: OpenAI API Key
+$settings['openai_api_key'] = 'sk-...';
+$settings['default_ai_model'] = 'openai';
+```
 
-### Contoh Input:
-- **Nama Bisnis**: "Warung Makan Sejahtera"
-- **Jenis Bisnis**: "Restaurant"
-- **Deskripsi**: "Warung makan keluarga yang menyajikan masakan Indonesia autentik dengan bumbu tradisional dan suasana yang hangat di pusat kota."
-- **Jenis Konten**: "About Us Section"
+### Claude Setup
+```php
+// Required: Claude API Key
+$settings['claude_api_key'] = 'sk-ant-...';
+$settings['default_ai_model'] = 'claude';
+```
 
-### Contoh Output:
-AI akan menghasilkan konten About Us yang profesional dan menarik berdasarkan informasi yang diberikan.
+### Gemini Setup
+```php
+// Required: Gemini API Key
+$settings['gemini_api_key'] = 'AIza...';
+$settings['default_ai_model'] = 'gemini';
+```
 
-## 🔒 Keamanan & Privasi
+## 📊 Sample Data
 
-- Plugin menggunakan nonce untuk keamanan AJAX
-- API keys disimpan dengan aman di database WordPress
-- Data bisnis tidak disimpan secara permanen
-- Semua komunikasi dengan API menggunakan HTTPS
+### Sample Business Profile
+```json
+{
+    "business_name": "Tech Solutions Pro",
+    "business_type": "technology",
+    "description": "We provide cutting-edge technology solutions for businesses. Our team specializes in custom software development, cloud migration, and digital transformation consulting.",
+    "logo_url": "https://example.com/logo.png",
+    "primary_color": "#667eea",
+    "secondary_color": "#764ba2",
+    "phone": "+1 (555) 123-4567",
+    "email": "contact@techsolutionspro.com",
+    "address": "123 Tech Street, San Francisco, CA 94105",
+    "tagline": "Transforming businesses through technology",
+    "social_media": {
+        "facebook": "https://facebook.com/techsolutionspro",
+        "linkedin": "https://linkedin.com/company/techsolutionspro",
+        "whatsapp": "+15551234567"
+    }
+}
+```
 
-## 💰 Biaya API
+### Sample AI Generated Content
+```json
+{
+    "hero_headline": "Transform Your Business with Technology",
+    "hero_subheading": "We help businesses leverage cutting-edge technology to increase efficiency, reduce costs, and drive growth through custom solutions.",
+    "hero_cta_text": "Get Started Today",
+    "feature_1": {
+        "title": "Custom Development",
+        "description": "Tailored software solutions built specifically for your business needs. Our expert developers create scalable applications that grow with your company."
+    },
+    "feature_2": {
+        "title": "Cloud Migration",
+        "description": "Seamlessly transition to the cloud with our proven migration strategies. Reduce infrastructure costs while improving performance and security."
+    },
+    "feature_3": {
+        "title": "24/7 Support",
+        "description": "Round-the-clock technical support ensures your systems run smoothly. Our dedicated team is always ready to help when you need us most."
+    }
+}
+```
 
-| Provider | Model | Perkiraan Biaya per 1K Token |
-|----------|-------|-------------------------------|
-| OpenAI | GPT-3.5 Turbo | ~$0.002 |
-| Claude | Claude 3 Sonnet | ~$0.003 |
-| Gemini | Gemini Pro | Gratis (dengan batas) |
+## 🔒 Security Features
 
-*Catatan: Biaya dapat berubah. Cek dokumentasi resmi masing-masing provider.*
+- **Nonce Verification** - All AJAX requests are protected
+- **Capability Checks** - Role-based access control
+- **Input Sanitization** - All user inputs are sanitized
+- **SQL Injection Prevention** - Prepared statements used
+- **XSS Protection** - Output escaping implemented
 
-## 🛠️ Troubleshooting
+## 🚀 Performance
 
-### Plugin tidak muncul setelah aktivasi
-- Pastikan WordPress versi 6.0+
-- Pastikan PHP versi 7.4+
-- Cek log error WordPress
+- **Efficient Database Queries** - Optimized with proper indexing
+- **AJAX Loading** - Non-blocking page generation
+- **Caching Support** - Compatible with WordPress caching
+- **Minimal Resource Usage** - Lightweight implementation
 
-### API tidak bekerja
-- Pastikan API key sudah benar
-- Cek koneksi internet
-- Pastikan tidak ada firewall yang memblokir
+## 🐛 Troubleshooting
 
-### Form tidak submit
-- Pastikan JavaScript aktif di browser
-- Cek console browser untuk error
-- Pastikan jQuery dimuat dengan benar
+### Common Issues
 
-### Konten tidak generate
-- Pastikan semua field required sudah diisi
-- Cek API key dan quota
-- Coba dengan AI model yang berbeda
+**Issue: API Connection Failed**
+- Check API key is correct
+- Verify API service is active
+- Test connection in Settings
 
-## 🔄 Update Plugin
+**Issue: Page Generation Slow**
+- Reduce max_tokens setting
+- Check server timeout limits
+- Monitor AI service status
 
-1. Backup website Anda
-2. Download versi terbaru plugin
-3. Deaktivasi plugin lama
-4. Upload plugin baru
-5. Aktifkan kembali plugin
-6. Cek pengaturan API keys
+**Issue: Missing GreenShift Blocks**
+- Install GreenShift plugin
+- Check block registration
+- Verify template structure
 
-## 📞 Support & Kontribusi
+### Debug Mode
+```php
+// Add to wp-config.php
+define('GSBA_DEBUG', true);
+```
 
-### Mendapatkan Support
-- Buat issue di repository GitHub
-- Kirim email ke developer
-- Check dokumentasi WordPress
+## 📝 Changelog
 
-### Kontribusi
-1. Fork repository
-2. Buat branch untuk fitur baru
-3. Commit perubahan Anda
-4. Submit pull request
+### Version 1.0.0
+- Initial MVP release
+- Complete AI integration (OpenAI, Claude, Gemini)
+- 3 default templates (Landing, About, Pricing)
+- User dashboard and admin management
+- SEO optimization features
+- Logo and branding integration
+- Social media support
 
-## 📄 Lisensi
+## 🤝 Contributing
 
-Plugin ini dilisensikan under GPL v2 atau yang lebih baru. Lihat file `LICENSE` untuk detail lengkap.
+1. Fork the repository
+2. Create feature branch
+3. Make changes
+4. Add tests
+5. Submit pull request
 
-## 🙏 Kredit
+## 📄 License
 
-- Dikembangkan berdasarkan framework GreenShift
-- Menggunakan API dari OpenAI, Anthropic, dan Google
-- Terinspirasi dari plugin Smart Code AI
+GPL v2 or later
 
-## 📊 Changelog
+## 🆘 Support
 
-### v1.0.0 (2024-01-15)
-- Release awal
-- Dukungan OpenAI, Claude, dan Gemini
-- Blok Gutenberg
-- Shortcode support
-- 10 jenis konten bisnis
-- Interface responsif
+- **Documentation**: Check this README
+- **Issues**: Create GitHub issue
+- **Email**: support@wpsoul.com
 
 ---
 
-**Developed with ❤️ for Indonesian WordPress Community**
-
-Jika plugin ini membantu bisnis Anda, jangan lupa berikan ⭐ di repository ini!
+**🎉 Ready to transform business websites with AI? Install the GreenShift Business AI Generator and start creating professional pages in minutes!**
