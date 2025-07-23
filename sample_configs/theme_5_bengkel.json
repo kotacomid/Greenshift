@@ -1,0 +1,166 @@
+{
+  "theme_name": "AutoCare Pro",
+  "description": "Modern automotive service center - Bengkel mobil modern dengan booking online dan tracking service real-time",
+  "industry": "automotive",
+  "business_type": "bengkel",
+  "colors": {
+    "primary": "#ef4444",
+    "secondary": "#f59e0b",
+    "accent": "#10b981"
+  },
+  "fonts": {
+    "sans": [
+      "Roboto",
+      "sans-serif"
+    ],
+    "heading": [
+      "Montserrat",
+      "sans-serif"
+    ]
+  },
+  "sections": {
+    "hero": {
+      "title": "Bengkel Mobil Modern & Terpercaya",
+      "subtitle": "Service kendaraan profesional dengan booking online, tracking real-time, dan garansi resmi untuk semua merk mobil",
+      "cta_primary": "Booking Service Online",
+      "cta_secondary": "Estimasi Biaya"
+    },
+    "services": [
+      {
+        "title": "Service Berkala & Tune-Up",
+        "description": "Perawatan rutin sesuai jadwal pabrikan dengan spare part original dan teknisi berpengalaman",
+        "icon": "wrench",
+        "features": [
+          "Service sesuai KM pabrikan",
+          "Spare part original/OEM",
+          "Teknisi certified",
+          "Garansi service 6 bulan",
+          "Digital service record"
+        ]
+      },
+      {
+        "title": "Engine Diagnostics",
+        "description": "Diagnosis mesin menggunakan scanner OBD terbaru untuk deteksi masalah akurat",
+        "icon": "cpu",
+        "features": [
+          "OBD scanner professional",
+          "ECU programming",
+          "Performance analysis",
+          "Emission test",
+          "Engine health report"
+        ]
+      },
+      {
+        "title": "Body Repair & Painting",
+        "description": "Perbaikan body dan cat mobil dengan teknologi oven baking dan color matching",
+        "icon": "paint-brush",
+        "features": [
+          "Oven baking technology",
+          "Computer color matching",
+          "Dent repair specialist",
+          "Insurance claim support",
+          "Paint protection film"
+        ]
+      },
+      {
+        "title": "Tire & Wheel Service",
+        "description": "Layanan ban dan velg lengkap dengan alignment, balancing, dan tire pressure monitoring",
+        "icon": "cog",
+        "features": [
+          "Wheel alignment 3D",
+          "Digital tire balancing",
+          "Tire pressure monitoring",
+          "Nitrogen filling",
+          "Tire rotation service"
+        ]
+      },
+      {
+        "title": "Emergency Roadside",
+        "description": "Layanan darurat 24/7 dengan tow truck dan teknisi mobile untuk bantuan di jalan",
+        "icon": "truck",
+        "features": [
+          "24/7 emergency hotline",
+          "GPS tracked tow truck",
+          "Mobile mechanic service",
+          "Battery jump start",
+          "Flat tire assistance"
+        ]
+      },
+      {
+        "title": "AC & Electrical Service",
+        "description": "Spesialis AC mobil dan sistem kelistrikan dengan peralatan diagnostic modern",
+        "icon": "lightning-bolt",
+        "features": [
+          "AC system diagnosis",
+          "Electrical troubleshooting",
+          "ECU repair service",
+          "Wiring harness repair",
+          "Battery health check"
+        ]
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Pak Andi Wijaya",
+        "role": "Owner Toyota Fortuner 2020",
+        "content": "Service di AutoCare Pro sangat professional. Booking online mudah, progress service bisa ditrack real-time, dan hasilnya memuaskan. Recommended!",
+        "rating": 5,
+        "image": "customer1.jpg",
+        "stats": {
+          "service_satisfaction": "98%",
+          "turnaround_time": "2 hours faster",
+          "cost_transparency": "100%"
+        }
+      },
+      {
+        "name": "PT. Logistik Nusantara",
+        "role": "Fleet Manager - 50 Vehicles",
+        "content": "Maintenance fleet jadi lebih terorganisir dengan sistem AutoCare Pro. Scheduled maintenance reminder dan reporting yang detail sangat membantu operasional.",
+        "rating": 5,
+        "image": "fleet1.jpg",
+        "stats": {
+          "fleet_uptime": "+15%",
+          "maintenance_cost": "-25%",
+          "efficiency_gain": "+30%"
+        }
+      },
+      {
+        "name": "Ibu Sari Permata",
+        "role": "Owner Honda CR-V 2019",
+        "content": "Sebagai perempuan, saya merasa aman service di sini. Teknisi menjelaskan dengan detail, harga transparan, dan ada area waiting yang nyaman untuk customer.",
+        "rating": 5,
+        "image": "customer2.jpg",
+        "stats": {
+          "customer_comfort": "10/10",
+          "price_transparency": "100%",
+          "service_explanation": "Excellent"
+        }
+      }
+    ]
+  },
+  "contact": {
+    "phone": "+62 21 4444 7777",
+    "email": "info@autocare-pro.com",
+    "address": "Jl. Otomotif Raya No. 456, Sunter, Jakarta Utara 14350",
+    "whatsapp": "+62 812 4444 7777"
+  },
+  "wordpress_features": [
+    "post-thumbnails",
+    "menus",
+    "widgets",
+    "custom-post-types",
+    "woocommerce"
+  ],
+  "custom_post_types": [
+    "services",
+    "bookings",
+    "vehicles",
+    "testimonials",
+    "technicians"
+  ],
+  "animation_style": "bouncy",
+  "seo": {
+    "meta_keywords": "bengkel mobil Jakarta, service mobil online, automotive repair, car maintenance, auto care",
+    "meta_description": "Bengkel mobil modern dengan booking online, tracking service real-time, dan garansi resmi untuk semua merk kendaraan"
+  }
+}

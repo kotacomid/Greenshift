@@ -1,0 +1,283 @@
+# AI Theme Generator Configuration
+# Customize default settings and WordPress integration
+
+# Default theme settings
+defaults:
+  author: "AI Theme Generator"
+  version: "1.0.0"
+  license: "GPL v2 or later"
+  license_uri: "https://www.gnu.org/licenses/gpl-2.0.html"
+  wp_version: "5.0"
+  wp_tested: "6.4"
+  php_version: "7.4"
+  
+# Default color schemes
+default_colors:
+  primary: "#3b82f6"      # Blue
+  secondary: "#10b981"    # Green
+  accent: "#f59e0b"       # Amber
+  text: "#1f2937"         # Gray-800
+  background: "#ffffff"   # White
+
+# WordPress integration settings
+wordpress:
+  upload_path: "/var/www/html/wp-content/themes/"
+  auto_upload: false
+  auto_activate: false
+  create_child_theme: true
+  
+# Theme generation settings
+generation:
+  output_directory: "generated_themes"
+  create_zip: true
+  create_documentation: true
+  minify_assets: false
+  optimize_images: true
+  
+# Supported industries with specific settings
+industries:
+  healthcare:
+    primary_color: "#3b82f6"
+    secondary_color: "#10b981"
+    icons: ["stethoscope", "heart", "plus-circle", "shield-check"]
+    tags: ["healthcare", "medical", "clinic", "telemedicine"]
+    
+  sanitation:
+    primary_color: "#10b981"
+    secondary_color: "#3b82f6"
+    icons: ["truck", "clock", "wrench", "check-circle"]
+    tags: ["sanitation", "cleaning", "maintenance", "service"]
+    
+  technology:
+    primary_color: "#f59e0b"
+    secondary_color: "#ef4444"
+    icons: ["device-mobile", "cpu", "code", "lightning-bolt"]
+    tags: ["technology", "repair", "service", "electronics"]
+    
+  education:
+    primary_color: "#8b5cf6"
+    secondary_color: "#3b82f6"
+    icons: ["academic-cap", "book-open", "users", "chart-bar"]
+    tags: ["education", "learning", "school", "training"]
+    
+  automotive:
+    primary_color: "#ef4444"
+    secondary_color: "#f59e0b"
+    icons: ["truck", "wrench", "cog", "calendar"]
+    tags: ["automotive", "car", "repair", "service"]
+
+# Animation presets
+animations:
+  smooth:
+    duration: "0.3s"
+    easing: "ease-out"
+    hover_scale: "1.05"
+    
+  bouncy:
+    duration: "0.5s"
+    easing: "cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+    hover_scale: "1.1"
+    
+  minimal:
+    duration: "0.2s"
+    easing: "linear"
+    hover_scale: "1.02"
+
+# Font configurations
+fonts:
+  sans:
+    primary: ["Inter", "sans-serif"]
+    secondary: ["Roboto", "sans-serif"]
+    
+  heading:
+    primary: ["Poppins", "sans-serif"]
+    secondary: ["Montserrat", "sans-serif"]
+    
+  mono:
+    primary: ["Fira Code", "monospace"]
+    secondary: ["Source Code Pro", "monospace"]
+
+# Performance optimization
+performance:
+  lazy_loading: true
+  critical_css: true
+  defer_scripts: true
+  compress_images: true
+  minify_css: false
+  minify_js: false
+  
+# SEO settings
+seo:
+  meta_description_length: 160
+  title_length: 60
+  include_structured_data: true
+  include_social_meta: true
+  include_sitemap: true
+
+# Security settings
+security:
+  csrf_protection: true
+  sanitize_inputs: true
+  escape_outputs: true
+  disable_file_editing: true
+  hide_wp_version: true
+
+# Analytics integration
+analytics:
+  google_analytics: false
+  facebook_pixel: false
+  custom_tracking: true
+  conversion_tracking: true
+  
+# Social media integration
+social:
+  whatsapp: true
+  facebook: false
+  instagram: false
+  twitter: false
+  linkedin: false
+
+# Contact form settings
+contact_form:
+  enabled: true
+  fields:
+    - name
+    - email
+    - phone
+    - subject
+    - message
+  validation: true
+  spam_protection: true
+  email_notification: true
+
+# Customizer panels
+customizer_panels:
+  - site_identity
+  - colors
+  - typography
+  - layout
+  - header
+  - footer
+  - homepage
+  - contact
+
+# Widget areas
+widget_areas:
+  - name: "Sidebar"
+    id: "sidebar-1"
+    description: "Main sidebar"
+    
+  - name: "Footer Area 1"
+    id: "footer-1"
+    description: "First footer column"
+    
+  - name: "Footer Area 2"
+    id: "footer-2"
+    description: "Second footer column"
+    
+  - name: "Footer Area 3"
+    id: "footer-3"
+    description: "Third footer column"
+
+# Menu locations
+menu_locations:
+  - id: "primary"
+    name: "Primary Menu"
+    description: "Main navigation menu"
+    
+  - id: "footer"
+    name: "Footer Menu"
+    description: "Footer navigation menu"
+
+# Image sizes
+image_sizes:
+  - name: "hero-banner"
+    width: 1920
+    height: 1080
+    crop: true
+    
+  - name: "service-thumb"
+    width: 400
+    height: 300
+    crop: true
+    
+  - name: "testimonial-avatar"
+    width: 150
+    height: 150
+    crop: true
+    
+  - name: "gallery-thumb"
+    width: 300
+    height: 300
+    crop: true
+
+# Development settings
+development:
+  debug_mode: false
+  show_template_hints: false
+  log_errors: true
+  
+# Backup settings
+backup:
+  auto_backup: false
+  backup_location: "backups/"
+  retention_days: 30
+
+# Deployment settings
+deployment:
+  staging_url: ""
+  production_url: ""
+  ftp_settings:
+    host: ""
+    username: ""
+    password: ""
+    
+# Template variations
+template_variations:
+  - name: "Corporate"
+    description: "Professional corporate design"
+    color_scheme: "blue"
+    
+  - name: "Creative"
+    description: "Creative agency style"
+    color_scheme: "purple"
+    
+  - name: "E-commerce"
+    description: "Online store optimized"
+    color_scheme: "green"
+    
+  - name: "Medical"
+    description: "Healthcare and medical"
+    color_scheme: "medical"
+
+# Supported page builders
+page_builders:
+  elementor: true
+  gutenberg: true
+  beaver_builder: false
+  divi: false
+  
+# Plugin compatibility
+plugin_compatibility:
+  - "WooCommerce"
+  - "Contact Form 7"
+  - "Yoast SEO"
+  - "Elementor"
+  - "WP Rocket"
+  - "UpdraftPlus"
+
+# Advanced features
+advanced_features:
+  dark_mode: false
+  rtl_support: false
+  multisite_support: true
+  custom_post_types: true
+  custom_fields: false
+  
+# Internationalization
+i18n:
+  default_language: "id"
+  supported_languages:
+    - "id"
+    - "en"
+  translation_ready: true

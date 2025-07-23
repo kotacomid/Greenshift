@@ -1,0 +1,165 @@
+{
+  "theme_name": "TechRepair Master",
+  "description": "Modern electronics and smartphone repair services - Service HP dan elektronik dengan AI diagnostics terdepan",
+  "industry": "technology",
+  "business_type": "service_hp",
+  "colors": {
+    "primary": "#f59e0b",
+    "secondary": "#ef4444",
+    "accent": "#8b5cf6"
+  },
+  "fonts": {
+    "sans": [
+      "Inter",
+      "sans-serif"
+    ],
+    "heading": [
+      "Poppins",
+      "sans-serif"
+    ]
+  },
+  "sections": {
+    "hero": {
+      "title": "Service HP & Elektronik Terpercaya",
+      "subtitle": "AI diagnostics dengan garansi resmi, spare part original, dan teknisi bersertifikat internasional",
+      "cta_primary": "Diagnosis Gratis",
+      "cta_secondary": "Cek Garansi Device"
+    },
+    "services": [
+      {
+        "title": "AI-Powered Diagnostics",
+        "description": "Sistem diagnosis otomatis menggunakan AI untuk deteksi masalah dengan akurasi 99.8%",
+        "icon": "cpu",
+        "features": [
+          "AI diagnostics akurasi 99.8%",
+          "Instant problem detection",
+          "Predictive failure analysis",
+          "Cost estimation real-time",
+          "Repair complexity scoring"
+        ]
+      },
+      {
+        "title": "Smartphone Repair Center",
+        "description": "Perbaikan semua merk smartphone dengan spare part original dan garansi resmi",
+        "icon": "device-mobile",
+        "features": [
+          "All brand support",
+          "Original spare parts",
+          "Same-day repair service",
+          "Water damage recovery",
+          "Data recovery guarantee"
+        ]
+      },
+      {
+        "title": "Laptop & Computer Service",
+        "description": "Service laptop dan komputer dengan teknisi certified dan tools professional",
+        "icon": "desktop-computer",
+        "features": [
+          "Hardware & software repair",
+          "SSD/HDD upgrade service",
+          "Virus removal specialist",
+          "Performance optimization",
+          "Remote support available"
+        ]
+      },
+      {
+        "title": "Gaming Console Repair",
+        "description": "Spesialis repair PlayStation, Xbox, Nintendo dengan spare part original",
+        "icon": "puzzle",
+        "features": [
+          "PlayStation 5/4/3 repair",
+          "Xbox Series X/S/One repair",
+          "Nintendo Switch repair",
+          "Controller customization",
+          "Firmware update service"
+        ]
+      },
+      {
+        "title": "Express Repair Service",
+        "description": "Layanan repair ekspres 1-3 jam untuk masalah urgent dengan prioritas tinggi",
+        "icon": "lightning-bolt",
+        "features": [
+          "1-3 hours completion",
+          "Priority queue system",
+          "Express warranty included",
+          "While-you-wait service",
+          "Emergency hotline 24/7"
+        ]
+      },
+      {
+        "title": "Corporate IT Support",
+        "description": "Maintenance IT corporate dengan SLA guarantee dan on-site support",
+        "icon": "office-building",
+        "features": [
+          "SLA guarantee 99.9%",
+          "On-site support team",
+          "Preventive maintenance",
+          "IT asset management",
+          "24/7 helpdesk support"
+        ]
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Dimas Pratama",
+        "role": "Content Creator - YouTube 500K Subscriber",
+        "content": "iPhone 13 Pro saya rusak karena jatuh, pikir udah gak bisa diapa-apain. Ternyata TechRepair bisa benerin dengan perfect! Kamera dan Face ID normal lagi.",
+        "rating": 5,
+        "image": "creator1.jpg",
+        "stats": {
+          "repair_success": "100%",
+          "turnaround_time": "4 hours",
+          "cost_vs_new": "70% cheaper"
+        }
+      },
+      {
+        "name": "CV. Digital Solutions",
+        "role": "Software House - 50 Employees",
+        "content": "Maintenance laptop team developer jadi lebih efficient dengan TechRepair. Response time cepat dan harga corporate yang kompetitif untuk budget IT kami.",
+        "rating": 5,
+        "image": "company1.jpg",
+        "stats": {
+          "downtime_reduction": "85%",
+          "cost_savings": "45%",
+          "employee_satisfaction": "96%"
+        }
+      },
+      {
+        "name": "Sarah Wijaya",
+        "role": "Mahasiswa UI - Fakultas Teknik",
+        "content": "Laptop untuk skripsi tiba-tiba mati total pas deadline. TechRepair berhasil recover semua data dan repair dalam 2 jam. Lifesaver banget!",
+        "rating": 5,
+        "image": "student1.jpg",
+        "stats": {
+          "data_recovery": "100%",
+          "repair_time": "2 hours",
+          "student_discount": "25%"
+        }
+      }
+    ]
+  },
+  "contact": {
+    "phone": "+62 21 5555 9999",
+    "email": "info@techrepairmaster.com",
+    "address": "Jl. Teknologi Digital No. 789, Senayan, Jakarta Selatan 12190",
+    "whatsapp": "+62 812 5555 9999"
+  },
+  "wordpress_features": [
+    "post-thumbnails",
+    "menus",
+    "widgets",
+    "custom-post-types",
+    "woocommerce"
+  ],
+  "custom_post_types": [
+    "repairs",
+    "testimonials",
+    "devices",
+    "warranties"
+  ],
+  "animation_style": "minimal",
+  "seo": {
+    "meta_keywords": "service hp Jakarta, repair iPhone, laptop repair, AI diagnostics, gaming console repair",
+    "meta_description": "Service HP dan elektronik terpercaya dengan AI diagnostics, garansi resmi, dan teknisi bersertifikat internasional"
+  }
+}

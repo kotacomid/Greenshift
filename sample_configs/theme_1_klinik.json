@@ -1,0 +1,164 @@
+{
+  "theme_name": "HealthCare Modern",
+  "description": "Modern healthcare and clinic website template - Solusi digital terdepan untuk pelayanan kesehatan di Indonesia",
+  "industry": "healthcare",
+  "business_type": "klinik",
+  "colors": {
+    "primary": "#3b82f6",
+    "secondary": "#10b981",
+    "accent": "#f59e0b"
+  },
+  "fonts": {
+    "sans": [
+      "Inter",
+      "sans-serif"
+    ],
+    "heading": [
+      "Poppins",
+      "sans-serif"
+    ]
+  },
+  "sections": {
+    "hero": {
+      "title": "Revolusi Pelayanan Kesehatan Digital",
+      "subtitle": "Platform telemedicine dan manajemen pasien terdepan untuk transformasi digital klinik Indonesia",
+      "cta_primary": "Konsultasi Gratis",
+      "cta_secondary": "Lihat Demo Live"
+    },
+    "services": [
+      {
+        "title": "Telemedicine Platform",
+        "description": "Konsultasi online dengan dokter spesialis menggunakan video call HD berkualitas",
+        "icon": "video-camera",
+        "features": [
+          "Video call HD quality",
+          "Chat real-time dengan dokter",
+          "Resep digital terintegrasi",
+          "Riwayat konsultasi lengkap",
+          "Notifikasi appointment"
+        ]
+      },
+      {
+        "title": "Electronic Medical Records",
+        "description": "Sistem EMR terintegrasi dengan cloud storage dan multi-device access",
+        "icon": "document-text",
+        "features": [
+          "Cloud storage aman",
+          "Multi-device access",
+          "Automatic backup",
+          "Patient history tracking",
+          "Lab result integration"
+        ]
+      },
+      {
+        "title": "Appointment Management",
+        "description": "Sistem booking appointment online dengan konfirmasi otomatis",
+        "icon": "calendar",
+        "features": [
+          "Online booking 24/7",
+          "SMS/WhatsApp reminder",
+          "Queue management",
+          "Doctor schedule sync",
+          "Payment integration"
+        ]
+      },
+      {
+        "title": "Pharmacy Integration",
+        "description": "Integrasi dengan apotek untuk resep digital dan delivery obat",
+        "icon": "heart",
+        "features": [
+          "Digital prescription",
+          "Medicine delivery",
+          "Stock management",
+          "Price comparison",
+          "Insurance claim"
+        ]
+      },
+      {
+        "title": "Analytics Dashboard",
+        "description": "Dashboard analytics untuk monitoring performa klinik dan kepuasan pasien",
+        "icon": "chart-bar",
+        "features": [
+          "Patient analytics",
+          "Revenue tracking",
+          "Performance metrics",
+          "Satisfaction survey",
+          "Custom reports"
+        ]
+      },
+      {
+        "title": "Mobile Application",
+        "description": "Aplikasi mobile untuk pasien dan dokter dengan notifikasi push",
+        "icon": "device-mobile",
+        "features": [
+          "iOS & Android app",
+          "Push notifications",
+          "Offline mode",
+          "Biometric login",
+          "Multi-language support"
+        ]
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Dr. Ahmad Fauzi",
+        "role": "Direktur Klinik Sehat Sentosa",
+        "content": "Platform ini benar-benar mengubah cara kami melayani pasien. Efisiensi operasional meningkat 300% dan kepuasan pasien mencapai 98%. ROI yang fantastis!",
+        "rating": 5,
+        "image": "doctor1.jpg",
+        "stats": {
+          "efficiency_increase": "300%",
+          "patient_satisfaction": "98%",
+          "roi": "450%"
+        }
+      },
+      {
+        "name": "Dr. Sari Indrawati",
+        "role": "Dokter Spesialis Anak - RS Bunda",
+        "content": "Fitur telemedicine sangat membantu pasien yang sulit datang ke klinik. Sistem EMR juga memudahkan tracking riwayat pasien secara real-time.",
+        "rating": 5,
+        "image": "doctor2.jpg",
+        "stats": {
+          "telemedicine_usage": "85%",
+          "time_saved": "2 hours/day",
+          "patient_reach": "+200%"
+        }
+      },
+      {
+        "name": "Budi Santoso",
+        "role": "Pasien Diabetes - Jakarta",
+        "content": "Monitoring diabetes jadi lebih mudah dengan aplikasi ini. Reminder minum obat dan konsultasi online sangat membantu kontrol gula darah saya.",
+        "rating": 5,
+        "image": "patient1.jpg",
+        "stats": {
+          "health_improvement": "40%",
+          "medication_adherence": "95%",
+          "consultation_frequency": "+150%"
+        }
+      }
+    ]
+  },
+  "contact": {
+    "phone": "+62 21 1234 5678",
+    "email": "info@kliniksehat.com",
+    "address": "Jl. Kesehatan Raya No. 123, Menteng, Jakarta Pusat 10310",
+    "whatsapp": "+62 812 3456 7890"
+  },
+  "wordpress_features": [
+    "post-thumbnails",
+    "menus",
+    "widgets",
+    "custom-post-types"
+  ],
+  "custom_post_types": [
+    "testimonials",
+    "services",
+    "doctors",
+    "appointments"
+  ],
+  "animation_style": "smooth",
+  "seo": {
+    "meta_keywords": "klinik digital, telemedicine Indonesia, EMR system, healthcare technology",
+    "meta_description": "Platform digital terdepan untuk transformasi klinik modern di Indonesia dengan telemedicine dan EMR terintegrasi"
+  }
+}

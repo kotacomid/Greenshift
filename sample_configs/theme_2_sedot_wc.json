@@ -1,0 +1,165 @@
+{
+  "theme_name": "SanitasiPro Digital",
+  "description": "Modern sanitation and waste management services - Solusi sanitasi modern dengan teknologi IoT untuk Indonesia",
+  "industry": "sanitation",
+  "business_type": "sedot_wc",
+  "colors": {
+    "primary": "#10b981",
+    "secondary": "#3b82f6",
+    "accent": "#f59e0b"
+  },
+  "fonts": {
+    "sans": [
+      "Roboto",
+      "sans-serif"
+    ],
+    "heading": [
+      "Montserrat",
+      "sans-serif"
+    ]
+  },
+  "sections": {
+    "hero": {
+      "title": "Layanan Sedot WC Profesional 24/7",
+      "subtitle": "Booking online dengan tracking real-time, teknologi IoT, dan sistem pembayaran digital untuk solusi sanitasi modern",
+      "cta_primary": "Booking Sekarang",
+      "cta_secondary": "Cek Harga Area"
+    },
+    "services": [
+      {
+        "title": "Sedot WC Darurat 24/7",
+        "description": "Layanan darurat 24 jam dengan response time < 30 menit untuk area Jabodetabek",
+        "icon": "clock",
+        "features": [
+          "Response time < 30 menit",
+          "Tim profesional certified",
+          "Harga transparan no hidden cost",
+          "Peralatan modern & higienis",
+          "Garansi service 30 hari"
+        ]
+      },
+      {
+        "title": "Maintenance Rutin Terjadwal",
+        "description": "Perawatan berkala sistem septictank dengan reminder otomatis dan monitoring IoT",
+        "icon": "calendar",
+        "features": [
+          "Jadwal maintenance fleksibel",
+          "Reminder otomatis WhatsApp",
+          "IoT monitoring system",
+          "Diskon member hingga 25%",
+          "Report maintenance digital"
+        ]
+      },
+      {
+        "title": "Sistem Tracking Real-time",
+        "description": "Monitor perjalanan tim teknisi dan estimasi kedatangan dengan GPS tracking",
+        "icon": "location",
+        "features": [
+          "GPS tracking teknisi",
+          "Estimasi waktu kedatangan",
+          "Notifikasi status real-time",
+          "Rating & review system",
+          "Photo progress update"
+        ]
+      },
+      {
+        "title": "Pembersihan Industrial",
+        "description": "Layanan sanitasi untuk gedung bertingkat, pabrik, dan kompleks komersial",
+        "icon": "building",
+        "features": [
+          "Peralatan industrial grade",
+          "Certified waste disposal",
+          "Environmental compliance",
+          "Bulk pricing available",
+          "Contract maintenance"
+        ]
+      },
+      {
+        "title": "Eco-Friendly Treatment",
+        "description": "Treatment biologis ramah lingkungan dengan teknologi terdepan",
+        "icon": "leaf",
+        "features": [
+          "Bio-enzyme treatment",
+          "Zero chemical process",
+          "Waste water recycling",
+          "Carbon footprint tracking",
+          "Green certification"
+        ]
+      },
+      {
+        "title": "Smart Payment System",
+        "description": "Sistem pembayaran digital dengan berbagai metode dan cicilan 0%",
+        "icon": "credit-card",
+        "features": [
+          "Multiple payment methods",
+          "Cicilan 0% tersedia",
+          "Digital invoice & receipt",
+          "Loyalty point system",
+          "Corporate billing"
+        ]
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Pak Wahyu Santoso",
+        "role": "Property Manager - Apartemen Mediterania",
+        "content": "Sejak pakai SanitasiPro, masalah septictank apartemen jadi terkontrol. Sistem monitoring IoT-nya membantu prediksi maintenance sebelum ada masalah besar.",
+        "rating": 5,
+        "image": "manager1.jpg",
+        "stats": {
+          "cost_reduction": "40%",
+          "emergency_calls": "-80%",
+          "tenant_satisfaction": "95%"
+        }
+      },
+      {
+        "name": "Ibu Ratna Sari",
+        "role": "Ibu Rumah Tangga - Depok",
+        "content": "Pelayanan sangat profesional dan cepat. Tim datang tepat waktu, kerja bersih, dan harga sesuai estimasi awal. Tracking GPS-nya juga membantu banget!",
+        "rating": 5,
+        "image": "customer1.jpg",
+        "stats": {
+          "service_speed": "25 menit",
+          "cleanliness_rating": "10/10",
+          "price_accuracy": "100%"
+        }
+      },
+      {
+        "name": "PT. Global Manufacturing",
+        "role": "Corporate Client - Bekasi",
+        "content": "Kontrak maintenance dengan SanitasiPro sangat cost-effective. Laporan digital dan compliance certificate membantu audit environmental kami.",
+        "rating": 5,
+        "image": "corporate1.jpg",
+        "stats": {
+          "annual_savings": "35%",
+          "compliance_score": "100%",
+          "downtime_reduction": "90%"
+        }
+      }
+    ]
+  },
+  "contact": {
+    "phone": "+62 21 9876 5432",
+    "email": "info@sanitasipro.com",
+    "address": "Jl. Industri Raya No. 456, Cakung, Jakarta Timur 13910",
+    "whatsapp": "+62 811 9876 5432"
+  },
+  "wordpress_features": [
+    "post-thumbnails",
+    "menus",
+    "widgets",
+    "custom-post-types",
+    "woocommerce"
+  ],
+  "custom_post_types": [
+    "services",
+    "testimonials",
+    "bookings",
+    "areas"
+  ],
+  "animation_style": "bouncy",
+  "seo": {
+    "meta_keywords": "sedot wc Jakarta, layanan sanitasi modern, IoT monitoring, emergency septic tank",
+    "meta_description": "Layanan sedot WC profesional 24/7 dengan tracking real-time dan teknologi IoT untuk sanitasi modern Indonesia"
+  }
+}

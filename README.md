@@ -1,466 +1,447 @@
-# Template HTML Modern dengan Tailwind CSS untuk WordPress
+# 🚀 AI Theme Generator for WordPress
 
-## 📋 Deskripsi
+Sistem otomatis untuk generate template WordPress modern dari konfigurasi JSON menggunakan AI dan Jinja2. Fokus pada bisnis Indonesia dengan design Tailwind CSS yang responsif dan performa tinggi.
 
-Koleksi template HTML modern dan responsif yang dioptimalkan untuk berbagai jenis bisnis Indonesia, termasuk:
-
-- **Kesehatan & Klinik** - Sistem telemedicine dan manajemen pasien
-- **Sanitasi & Sedot WC** - Platform booking dengan tracking real-time
-- **Service HP & Elektronik** - AI diagnostics dan inventory management
-- **Pendidikan & Sekolah** - E-learning dan manajemen akademik
-- **Otomotif & Bengkel** - Sistem booking dan tracking service
-- **E-Commerce & Retail** - Platform penjualan multi-channel
-
-## 🎨 Template yang Tersedia
-
-### 1. Template 1 (index.html) - "BisnisKu"
-- **Style**: Gradient colors dengan fokus pada interaktivitas
-- **Features**: Animasi smooth, card hover effects, full-screen sections
-- **Best for**: Bisnis yang ingin tampil modern dan interaktif
-
-### 2. Template 2 (template-2.html) - "IndonesiaBiz"
-- **Style**: Glass morphism dengan gradient mesh background
-- **Features**: Advanced animations, floating elements, premium look
-- **Best for**: Bisnis enterprise dan layanan premium
-
-### 3. Template 3 (template-3.html) - "DigitalCore"
-- **Style**: Minimalis dengan clean design
-- **Features**: Focus pada konten, typography yang kuat, clean layout
-- **Best for**: Bisnis yang mengutamakan profesionalitas dan kesederhanaan
-
-## 🚀 Fitur Utama
-
-### Performance & SEO
-- ⚡ **Loading Speed**: Optimized untuk loading < 2 detik
-- 📱 **Mobile First**: Responsive design dengan prioritas mobile
-- 🔍 **SEO Ready**: Semantic HTML dan meta tags optimized
-- ♿ **Accessibility**: WCAG compliant untuk semua pengguna
-
-### Technology Stack
-- 🎨 **Tailwind CSS**: Utility-first CSS framework via CDN
-- 📐 **HTML5 Semantic**: Struktur markup yang clean dan semantic
-- ⚡ **Vanilla JavaScript**: Lightweight interactions tanpa dependencies
-- 🔧 **WordPress Ready**: Struktur siap untuk konversi ke theme
-
-### Visual & UX
-- 🌈 **Gradient Backgrounds**: Modern gradient color schemes
-- ✨ **Smooth Animations**: CSS animations dengan performance optimized
-- 🎯 **Call-to-Action**: Strategic placement untuk konversi optimal
-- 📞 **WhatsApp Integration**: Floating WhatsApp button untuk komunikasi
-
-## 📁 Struktur File
+## 🎯 Workflow AI → JSON → Python → WordPress
 
 ```
-├── index.html              # Template 1 - BisnisKu
-├── template-2.html          # Template 2 - IndonesiaBiz  
-├── template-3.html          # Template 3 - DigitalCore
-└── README.md               # Dokumentasi lengkap
+AI/GPT → JSON Config → Python + Jinja2 → HTML Templates → WordPress ZIP → Upload & Integration
 ```
 
-## 🔧 Cara Integrasi ke WordPress
+## ⚡ Quick Start
 
-### Metode 1: Child Theme dengan Tailwind CSS
+### 1. Setup Environment
+```bash
+# Clone repository
+git clone <repository-url>
+cd ai-theme-generator
 
-1. **Buat Child Theme**
-```php
-// style.css
-/*
-Theme Name: Business Template Child
-Description: Child theme dengan Tailwind CSS
-Template: your-parent-theme
-Version: 1.0
-*/
+# Install dependencies (if available)
+pip install -r requirements.txt
 
-@import url("../parent-theme/style.css");
+# Or create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+pip install jinja2 pyyaml
 ```
 
-2. **Setup functions.php**
-```php
-<?php
-function enqueue_tailwind_css() {
-    wp_enqueue_script('tailwindcss', 'https://cdn.tailwindcss.com', array(), '3.3.0', false);
-}
-add_action('wp_enqueue_scripts', 'enqueue_tailwind_css');
+### 2. Generate Sample Configurations
+```bash
+# Generate sample JSON files
+python3 generate_samples.py
 
-// Tailwind config
-function tailwind_config() {
-    ?>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#eff6ff',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                        }
-                    }
-                }
-            }
+# Or create samples using main script
+python3 template_generator.py --create-samples
+```
+
+### 3. Generate Theme dari JSON
+```bash
+# Generate single theme
+python3 template_generator.py --json sample_configs/theme_1_klinik.json
+
+# Generate multiple themes
+python3 template_generator.py --multiple sample_configs/*.json
+
+# Custom theme name
+python3 template_generator.py --json config.json --theme-name "MyCustomTheme"
+```
+
+## 📁 Struktur Project
+
+```
+ai-theme-generator/
+├── template_generator.py      # Main script untuk generate themes
+├── generate_samples.py        # Script untuk create sample JSON
+├── config.yaml               # Konfigurasi utama system
+├── requirements.txt          # Python dependencies
+├── templates/                # Jinja2 templates
+│   ├── base_template.html    # Main HTML template
+│   ├── functions.php         # WordPress functions
+│   ├── main.js              # JavaScript template  
+│   ├── header.php           # WordPress header
+│   ├── footer.php           # WordPress footer
+│   └── index.php            # WordPress index
+├── sample_configs/          # Sample JSON configurations
+│   ├── theme_1_klinik.json  # Healthcare template
+│   ├── theme_2_sedot_wc.json # Sanitation services
+│   ├── theme_3_service_hp.json # Tech repair
+│   ├── theme_4_sekolah.json # Education platform
+│   └── theme_5_bengkel.json # Automotive service
+└── generated_themes/        # Output directory
+    ├── HealthCare Modern/   # Generated theme folder
+    │   ├── style.css
+    │   ├── functions.php
+    │   ├── index.html
+    │   └── assets/
+    └── HealthCare Modern.zip # WordPress-ready ZIP
+```
+
+## 🎨 Supported Industries & Templates
+
+### 1. Healthcare (Klinik)
+- **Features**: Telemedicine, EMR, Appointment booking
+- **Colors**: Blue (#3b82f6) + Green (#10b981)
+- **Use Case**: Klinik, rumah sakit, praktek dokter
+
+### 2. Sanitation (Sedot WC)
+- **Features**: IoT monitoring, Real-time tracking, Emergency service
+- **Colors**: Green (#10b981) + Blue (#3b82f6)
+- **Use Case**: Layanan sanitasi, sedot WC, maintenance
+
+### 3. Technology (Service HP)
+- **Features**: AI diagnostics, Express repair, Device tracking
+- **Colors**: Orange (#f59e0b) + Red (#ef4444)
+- **Use Case**: Service elektronik, repair smartphone, IT support
+
+### 4. Education (Sekolah)
+- **Features**: Virtual classroom, LMS, AI personalization
+- **Colors**: Purple (#8b5cf6) + Blue (#3b82f6)
+- **Use Case**: Sekolah, universitas, kursus online
+
+### 5. Automotive (Bengkel)
+- **Features**: Booking online, Service tracking, Fleet management
+- **Colors**: Red (#ef4444) + Orange (#f59e0b)
+- **Use Case**: Bengkel mobil, spare part, car wash
+
+## 🔧 JSON Configuration Format
+
+```json
+{
+  "theme_name": "Nama Theme",
+  "description": "Deskripsi theme untuk bisnis Indonesia",
+  "industry": "healthcare|sanitation|technology|education|automotive",
+  "business_type": "klinik|sedot_wc|service_hp|sekolah|bengkel",
+  "colors": {
+    "primary": "#3b82f6",
+    "secondary": "#10b981", 
+    "accent": "#f59e0b"
+  },
+  "sections": {
+    "hero": {
+      "title": "Judul Hero Section",
+      "subtitle": "Subtitle yang menjelaskan value proposition",
+      "cta_primary": "Button utama",
+      "cta_secondary": "Button kedua"
+    },
+    "services": [
+      {
+        "title": "Nama Layanan",
+        "description": "Deskripsi layanan detail",
+        "icon": "heroicon-name",
+        "features": ["Feature 1", "Feature 2", "Feature 3"]
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Nama Customer",
+        "role": "Jabatan - Perusahaan",
+        "content": "Testimoni lengkap dengan hasil konkret",
+        "rating": 5,
+        "stats": {
+          "metric1": "100%",
+          "metric2": "+50%"
         }
-    </script>
-    <?php
-}
-add_action('wp_head', 'tailwind_config');
-?>
-```
-
-3. **Konversi HTML ke PHP Templates**
-```php
-// header.php
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
-    <?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
-
-// footer.php
-    <?php wp_footer(); ?>
-</body>
-</html>
-
-// index.php - Landing page
-<?php get_header(); ?>
-<!-- Copy konten dari template HTML -->
-<?php get_footer(); ?>
-```
-
-### Metode 2: Page Builder Integration
-
-#### Elementor
-1. Install Elementor Pro
-2. Buat template baru dengan HTML widget
-3. Copy paste section HTML ke dalam widget
-4. Customize dengan Elementor visual editor
-
-#### Gutenberg Blocks
-1. Buat custom blocks dengan HTML content
-2. Register blocks di functions.php
-3. Style dengan Tailwind classes
-
-### Metode 3: Plugin Custom Templates
-
-1. **Install Template Plugin**
-```php
-// Plugin untuk custom page templates
-function add_custom_page_templates($templates) {
-    $templates['page-business-landing.php'] = 'Business Landing Page';
-    return $templates;
-}
-add_filter('theme_page_templates', 'add_custom_page_templates');
-```
-
-2. **Buat Template File**
-```php
-// page-business-landing.php
-<?php 
-/*
-Template Name: Business Landing Page
-*/
-get_header(); 
-?>
-<!-- HTML template content here -->
-<?php get_footer(); ?>
-```
-
-## 🎨 Customization Guide
-
-### Color Scheme
-Setiap template menggunakan sistem warna yang dapat disesuaikan:
-
-```css
-:root {
-  --primary-50: #eff6ff;
-  --primary-500: #3b82f6;
-  --primary-600: #2563eb;
-  --primary-700: #1d4ed8;
+      }
+    ]
+  },
+  "contact": {
+    "phone": "+62 21 1234 5678",
+    "email": "email@domain.com",
+    "address": "Alamat lengkap",
+    "whatsapp": "+62 812 3456 7890"
+  },
+  "animation_style": "smooth|bouncy|minimal"
 }
 ```
 
-### Typography
-```css
-/* Headings */
-.heading-1 { @apply text-4xl md:text-6xl font-bold; }
-.heading-2 { @apply text-3xl md:text-4xl font-bold; }
+## 🎯 WordPress Integration
 
-/* Body text */
-.body-text { @apply text-lg leading-relaxed; }
-.body-small { @apply text-sm text-gray-600; }
+### Auto-Generated Files
+- `style.css` - WordPress theme header & Tailwind CSS
+- `functions.php` - Theme setup, widgets, custom post types
+- `index.php` - Main template file
+- `header.php` - Site header with navigation
+- `footer.php` - Site footer with widgets
+- `single.php` - Single post template
+- `page.php` - Static page template
+- `archive.php` - Archive pages
+- `404.php` - Error page
+
+### Features Yang Dihasilkan
+- ✅ Responsive design (mobile-first)
+- ✅ Tailwind CSS integration
+- ✅ Custom post types (services, testimonials)
+- ✅ WordPress Customizer integration
+- ✅ Contact form dengan AJAX
+- ✅ WhatsApp floating button
+- ✅ SEO optimization
+- ✅ Performance optimization
+- ✅ Security enhancements
+
+### Upload ke WordPress
+```bash
+# Upload manual
+1. Extract generated ZIP file
+2. Upload ke wp-content/themes/
+3. Activate via WordPress admin
+
+# Auto upload (jika dikonfigurasi)
+python3 template_generator.py --json config.json --auto-upload
 ```
 
-### Components
-```css
-/* Buttons */
-.btn-primary { @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-opacity; }
+## 🚀 Advanced Features
 
-/* Cards */
-.card { @apply bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300; }
-```
+### Animation Styles
+- **Smooth**: Transisi halus dan elegan
+- **Bouncy**: Animasi spring dengan bounce effect  
+- **Minimal**: Animasi sederhana dan cepat
 
-## 📱 Responsive Breakpoints
+### Performance Optimization
+- Lazy loading images
+- Critical CSS inline
+- Deferred JavaScript
+- Optimized font loading
+- Minified assets (optional)
 
-```css
-/* Mobile First Approach */
-sm: '640px'   /* Small devices */
-md: '768px'   /* Medium devices */  
-lg: '1024px'  /* Large devices */
-xl: '1280px'  /* Extra large devices */
-2xl: '1536px' /* 2X Extra large devices */
-```
+### SEO Features
+- Structured data (JSON-LD)
+- Open Graph meta tags
+- Twitter Card integration
+- XML sitemap
+- Meta descriptions
 
-## ⚡ Performance Optimization
-
-### Image Optimization
-```html
-<!-- Gunakan format modern -->
-<picture>
-  <source srcset="image.webp" type="image/webp">
-  <source srcset="image.avif" type="image/avif">
-  <img src="image.jpg" alt="Description" loading="lazy">
-</picture>
-```
-
-### CSS Optimization
-```php
-// Purge unused Tailwind CSS
-function optimize_tailwind() {
-    if (!is_admin()) {
-        // Load only used classes
-        wp_enqueue_style('tailwind-optimized', get_template_directory_uri() . '/css/tailwind-optimized.css');
-    }
-}
-add_action('wp_enqueue_scripts', 'optimize_tailwind');
-```
-
-### JavaScript Optimization
-```javascript
-// Lazy load animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
-        }
-    });
-}, observerOptions);
-```
-
-## 🛠 WordPress Hooks & Filters
-
-### Content Customization
-```php
-// Custom post types untuk testimonials
-function register_testimonials() {
-    register_post_type('testimonials', array(
-        'public' => true,
-        'label' => 'Testimonials',
-        'supports' => array('title', 'editor', 'thumbnail')
-    ));
-}
-add_action('init', 'register_testimonials');
-
-// Custom fields untuk services
-function add_service_meta_boxes() {
-    add_meta_box(
-        'service-details',
-        'Service Details',
-        'service_meta_box_callback',
-        'services'
-    );
-}
-add_action('add_meta_boxes', 'add_service_meta_boxes');
-```
-
-### Contact Form Integration
-```php
-// Contact form handler
-function handle_contact_form() {
-    if (isset($_POST['contact_submit'])) {
-        $name = sanitize_text_field($_POST['name']);
-        $email = sanitize_email($_POST['email']);
-        $message = sanitize_textarea_field($_POST['message']);
-        
-        // Send email
-        wp_mail($admin_email, 'New Contact Form Submission', $message);
-        
-        // Redirect with success message
-        wp_redirect(add_query_arg('sent', 'success', wp_get_referer()));
-        exit;
-    }
-}
-add_action('init', 'handle_contact_form');
-```
-
-## 🎯 Conversion Optimization
-
-### A/B Testing Setup
-```php
-// Simple A/B testing untuk CTA buttons
-function ab_test_cta() {
-    $variant = rand(1, 2);
-    setcookie('ab_variant', $variant, time() + (30 * 24 * 60 * 60)); // 30 days
-    
-    if ($variant == 1) {
-        return 'Konsultasi Gratis Sekarang';
-    } else {
-        return 'Mulai Transformasi Digital';
-    }
-}
-```
-
-### Analytics Integration
-```javascript
-// Google Analytics 4 events
-function trackCTAClick(buttonText) {
-    gtag('event', 'cta_click', {
-        'button_text': buttonText,
-        'page_location': window.location.href
-    });
-}
-
-// WhatsApp click tracking
-document.querySelector('.whatsapp-float').addEventListener('click', () => {
-    gtag('event', 'whatsapp_click', {
-        'page_location': window.location.href
-    });
-});
-```
-
-## 🔒 Security Considerations
-
-### Input Sanitization
-```php
-// Sanitize form inputs
-function sanitize_form_data($data) {
-    if (is_array($data)) {
-        return array_map('sanitize_form_data', $data);
-    }
-    return sanitize_text_field($data);
-}
-```
-
-### CSRF Protection
-```php
-// Add nonce fields to forms
-function add_security_nonce() {
-    wp_nonce_field('contact_form_action', 'contact_form_nonce');
-}
-
-// Verify nonce on submission
-function verify_form_nonce() {
-    if (!wp_verify_nonce($_POST['contact_form_nonce'], 'contact_form_action')) {
-        wp_die('Security check failed');
-    }
-}
-```
+### Security Features
+- CSRF protection
+- Input sanitization
+- Output escaping
+- Version hiding
+- File editing disabled
 
 ## 📊 Analytics & Tracking
 
-### Conversion Tracking
-```javascript
-// Track form submissions
-document.querySelector('#contact-form').addEventListener('submit', (e) => {
-    gtag('event', 'conversion', {
-        'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
-        'value': 1.0,
-        'currency': 'IDR'
-    });
-});
+### Built-in Tracking
+- Page load performance
+- User interaction events
+- WhatsApp click tracking
+- Form submission analytics
+- Conversion tracking
 
-// Track scroll depth
-let maxScroll = 0;
-window.addEventListener('scroll', () => {
-    const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-    if (scrollPercent > maxScroll) {
-        maxScroll = scrollPercent;
-        if (scrollPercent >= 75) {
-            gtag('event', 'scroll_depth', {'percent': scrollPercent});
-        }
-    }
-});
+### Integration Support
+- Google Analytics 4
+- Facebook Pixel
+- Custom event tracking
+- Heat mapping tools
+- A/B testing ready
+
+## 🎨 Customization Options
+
+### Colors & Branding
+```yaml
+# Customize via config.yaml
+default_colors:
+  primary: "#your-primary-color"
+  secondary: "#your-secondary-color"
+  accent: "#your-accent-color"
 ```
 
-## 🌍 Internationalization (i18n)
+### Typography
+- Google Fonts integration
+- Font pairing recommendations
+- Responsive typography scale
+- Custom font weights
 
-### WordPress Localization
-```php
-// Load text domain
-function load_theme_textdomain() {
-    load_theme_textdomain('business-theme', get_template_directory() . '/languages');
-}
-add_action('after_setup_theme', 'load_theme_textdomain');
+### Layout Options
+- Header styles (fixed/sticky/transparent)
+- Footer layouts (1-4 columns)
+- Sidebar positions
+- Container widths
 
-// Translatable strings
-echo __('Konsultasi Gratis', 'business-theme');
-echo _e('Hubungi Kami', 'business-theme');
+## 🔄 Workflow Integration
+
+### AI → JSON Generation
+```python
+# Example AI prompt untuk generate JSON:
+"""
+Generate JSON config untuk klinik gigi modern di Jakarta dengan:
+- Telemedicine consultation
+- Online appointment booking  
+- Digital payment integration
+- Patient management system
+- WhatsApp integration
+
+Target: Klinik gigi dengan 5-10 dokter
+Lokasi: Jakarta Selatan
+Budget: Premium service
+"""
 ```
 
-### Multi-language Content
-```php
-// Language switcher
-function language_switcher() {
-    $current_lang = get_locale();
-    $languages = array(
-        'id_ID' => 'Bahasa Indonesia',
-        'en_US' => 'English'
-    );
-    
-    foreach ($languages as $code => $name) {
-        if ($code != $current_lang) {
-            echo '<a href="' . get_site_url() . '/' . $code . '">' . $name . '</a>';
-        }
-    }
-}
+### Automated Pipeline
+```bash
+# Script untuk pipeline otomatis
+#!/bin/bash
+echo "🤖 Starting AI Theme Generation..."
+
+# 1. Generate JSON from AI
+python3 ai_to_json.py --prompt="$AI_PROMPT"
+
+# 2. Generate WordPress theme
+python3 template_generator.py --json ai_generated.json
+
+# 3. Deploy to staging
+python3 deploy.py --target=staging
+
+echo "✅ Theme deployed to staging!"
 ```
+
+## 📱 Mobile-First Design
+
+### Responsive Breakpoints
+- Mobile: 320px - 768px
+- Tablet: 768px - 1024px  
+- Desktop: 1024px+
+- Large: 1440px+
+
+### Touch-Friendly Features
+- Large touch targets (44px minimum)
+- Swipe gestures
+- Mobile navigation
+- Touch-optimized forms
+
+## 🌐 Internationalization
+
+### Language Support
+- Bahasa Indonesia (default)
+- English
+- Translation ready (.pot files)
+- RTL support (optional)
+
+### Localization Features
+- Indonesian currency (Rupiah)
+- Local phone number format
+- Jakarta timezone
+- Indonesian address format
+
+## 🧪 Testing & Quality
+
+### Automated Testing
+```bash
+# Run theme tests
+python3 -m pytest tests/
+
+# Performance testing
+python3 test_performance.py --theme=generated_theme
+
+# WordPress compatibility
+python3 test_wp_compatibility.py
+```
+
+### Quality Checks
+- W3C HTML validation
+- CSS validation
+- JavaScript linting
+- WordPress coding standards
+- Accessibility (WCAG 2.1)
+
+## 📈 Performance Metrics
+
+### Target Performance
+- Page Load: < 2 seconds
+- First Contentful Paint: < 1.5s
+- Largest Contentful Paint: < 2.5s
+- Cumulative Layout Shift: < 0.1
+- First Input Delay: < 100ms
+
+### Optimization Techniques
+- Critical CSS inline
+- Resource preloading
+- Image optimization
+- Code splitting
+- CDN integration
+
+## 🛠️ Development & Contribution
+
+### Development Setup
+```bash
+# Clone & setup
+git clone <repo>
+cd ai-theme-generator
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# Run tests
+python3 -m pytest
+
+# Generate documentation
+python3 generate_docs.py
+```
+
+### Contributing Guidelines
+1. Fork repository
+2. Create feature branch
+3. Add tests for new features
+4. Update documentation
+5. Submit pull request
 
 ## 📚 Resources & Documentation
 
-### Tailwind CSS
-- [Official Documentation](https://tailwindcss.com/docs)
-- [Components Gallery](https://tailwindui.com/components)
-- [Play CDN](https://tailwindcss.com/docs/installation/play-cdn)
+### Template Examples
+- [Healthcare Template Demo](./examples/healthcare/)
+- [Sanitation Service Demo](./examples/sanitation/)
+- [Tech Repair Demo](./examples/technology/)
 
-### WordPress Development
-- [Theme Development Handbook](https://developer.wordpress.org/themes/)
-- [Plugin Development Handbook](https://developer.wordpress.org/plugins/)
-- [REST API Handbook](https://developer.wordpress.org/rest-api/)
+### API Documentation
+- [JSON Schema Reference](./docs/json-schema.md)
+- [Jinja2 Template Guide](./docs/templates.md)
+- [WordPress Integration](./docs/wordpress.md)
 
-### Performance
-- [Web.dev Performance](https://web.dev/performance/)
-- [Google PageSpeed Insights](https://pagespeed.web.dev/)
-- [GTmetrix](https://gtmetrix.com/)
+### Tutorials
+- [Creating Custom Industry Templates](./tutorials/custom-industry.md)
+- [Advanced Jinja2 Techniques](./tutorials/advanced-templates.md)
+- [Performance Optimization](./tutorials/performance.md)
 
-## 🤝 Contributing
+## 🆘 Troubleshooting
 
-Jika Anda ingin berkontribusi pada pengembangan template ini:
+### Common Issues
 
-1. Fork repository
-2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
+**Error: Module 'jinja2' not found**
+```bash
+pip install jinja2 pyyaml
+```
+
+**Error: Permission denied (WordPress upload)**
+```bash
+chmod 755 wp-content/themes/
+chown www-data:www-data wp-content/themes/
+```
+
+**Theme not appearing in WordPress**
+- Check style.css header format
+- Verify file permissions
+- Check for PHP syntax errors
+
+### Debug Mode
+```bash
+# Enable debug mode
+python3 template_generator.py --json config.json --debug
+
+# Verbose output
+python3 template_generator.py --json config.json --verbose
+```
+
+## 📞 Support & Community
+
+- **Documentation**: [Full documentation](./docs/)
+- **Issues**: [GitHub Issues](./issues)
+- **Discussions**: [GitHub Discussions](./discussions)
+- **WhatsApp**: [Community Group](https://wa.me/group-link)
 
 ## 📄 License
 
-Template ini menggunakan MIT License - lihat file [LICENSE](LICENSE) untuk detail.
-
-## 📞 Support
-
-Untuk pertanyaan atau dukungan teknis:
-- Email: support@template.com
-- WhatsApp: +62 812 xxxx xxxx
-- Documentation: [docs.template.com](https://docs.template.com)
+MIT License - Open source untuk komunitas developer Indonesia
 
 ---
 
-**Catatan**: Template ini dioptimalkan untuk performa dan SEO, namun selalu lakukan testing menyeluruh sebelum deployment ke production.
+**🎯 Tujuan Akhir**: Generate dari AI → JSON → Python + Jinja → HTML → WordPress → Banyak theme modern untuk bisnis Indonesia!
+
+*Built with ❤️ for Indonesian businesses*

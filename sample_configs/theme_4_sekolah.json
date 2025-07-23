@@ -1,0 +1,166 @@
+{
+  "theme_name": "EduTech Indonesia",
+  "description": "Modern educational platform - Platform pembelajaran digital untuk transformasi pendidikan Indonesia",
+  "industry": "education",
+  "business_type": "sekolah",
+  "colors": {
+    "primary": "#8b5cf6",
+    "secondary": "#3b82f6",
+    "accent": "#10b981"
+  },
+  "fonts": {
+    "sans": [
+      "Inter",
+      "sans-serif"
+    ],
+    "heading": [
+      "Poppins",
+      "sans-serif"
+    ]
+  },
+  "sections": {
+    "hero": {
+      "title": "Transformasi Digital Pendidikan Indonesia",
+      "subtitle": "Platform pembelajaran online dengan AI-powered personalization, virtual classroom, dan sistem manajemen sekolah terintegrasi",
+      "cta_primary": "Coba Gratis 30 Hari",
+      "cta_secondary": "Lihat Demo Platform"
+    },
+    "services": [
+      {
+        "title": "Virtual Classroom",
+        "description": "Kelas virtual interaktif dengan whiteboard digital, breakout rooms, dan recording otomatis",
+        "icon": "academic-cap",
+        "features": [
+          "HD video conferencing",
+          "Interactive whiteboard",
+          "Breakout rooms for groups",
+          "Auto class recording",
+          "Screen sharing & presentation"
+        ]
+      },
+      {
+        "title": "Learning Management System",
+        "description": "LMS lengkap dengan progress tracking, assessment tools, dan analytics dashboard",
+        "icon": "book-open",
+        "features": [
+          "Course content management",
+          "Progress tracking siswa",
+          "Online quiz & assignments",
+          "Grade book integration",
+          "Parent progress reports"
+        ]
+      },
+      {
+        "title": "AI-Powered Personalization",
+        "description": "Sistem AI yang menyesuaikan pembelajaran berdasarkan kemampuan dan gaya belajar siswa",
+        "icon": "brain",
+        "features": [
+          "Adaptive learning paths",
+          "Personalized recommendations",
+          "Learning style analysis",
+          "Weak point identification",
+          "Smart study scheduling"
+        ]
+      },
+      {
+        "title": "School Management System",
+        "description": "Sistem manajemen sekolah untuk administrasi, keuangan, dan komunikasi",
+        "icon": "clipboard-list",
+        "features": [
+          "Student information system",
+          "Financial management",
+          "Attendance tracking",
+          "Library management",
+          "Communication portal"
+        ]
+      },
+      {
+        "title": "Mobile Learning App",
+        "description": "Aplikasi mobile untuk akses pembelajaran di mana saja dan kapan saja",
+        "icon": "device-mobile",
+        "features": [
+          "Offline content access",
+          "Push notifications",
+          "Mobile quiz & assignments",
+          "Video streaming optimized",
+          "Parent monitoring app"
+        ]
+      },
+      {
+        "title": "Assessment & Analytics",
+        "description": "Tools assessment comprehensive dengan analytics untuk monitoring pembelajaran",
+        "icon": "chart-bar",
+        "features": [
+          "Auto-grading system",
+          "Learning analytics",
+          "Performance predictions",
+          "Custom report generator",
+          "Intervention recommendations"
+        ]
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Dr. Siti Nurhaliza, M.Pd",
+        "role": "Kepala Sekolah - SMAN 1 Jakarta",
+        "content": "EduTech Indonesia membantu sekolah kami bertransformasi digital. Engagement siswa meningkat 85% dan efisiensi administrasi naik drastis.",
+        "rating": 5,
+        "image": "principal1.jpg",
+        "stats": {
+          "student_engagement": "+85%",
+          "admin_efficiency": "+200%",
+          "parent_satisfaction": "92%"
+        }
+      },
+      {
+        "name": "Budi Setiawan, S.Pd",
+        "role": "Guru Matematika - SMP Negeri 5 Bandung",
+        "content": "Fitur AI personalization sangat membantu. Siswa yang biasanya kesulitan dengan matematika jadi lebih paham dengan learning path yang disesuaikan.",
+        "rating": 5,
+        "image": "teacher1.jpg",
+        "stats": {
+          "learning_improvement": "+60%",
+          "teaching_efficiency": "+40%",
+          "student_satisfaction": "89%"
+        }
+      },
+      {
+        "name": "Rina Pratiwi",
+        "role": "Orang Tua Siswa - Kelas 10",
+        "content": "Sebagai orang tua, saya bisa monitoring progress anak real-time. Report yang detail membantu saya memahami di mana anak butuh bantuan lebih.",
+        "rating": 5,
+        "image": "parent1.jpg",
+        "stats": {
+          "parent_engagement": "+150%",
+          "child_improvement": "+45%",
+          "communication_satisfaction": "94%"
+        }
+      }
+    ]
+  },
+  "contact": {
+    "phone": "+62 21 7777 8888",
+    "email": "info@edutech-indonesia.com",
+    "address": "Jl. Pendidikan Raya No. 123, Senopati, Jakarta Selatan 12110",
+    "whatsapp": "+62 812 7777 8888"
+  },
+  "wordpress_features": [
+    "post-thumbnails",
+    "menus",
+    "widgets",
+    "custom-post-types",
+    "user-registration"
+  ],
+  "custom_post_types": [
+    "courses",
+    "lessons",
+    "students",
+    "teachers",
+    "assessments"
+  ],
+  "animation_style": "smooth",
+  "seo": {
+    "meta_keywords": "platform pembelajaran online, LMS Indonesia, virtual classroom, AI education, sekolah digital",
+    "meta_description": "Platform pembelajaran digital terdepan untuk transformasi pendidikan Indonesia dengan AI personalization dan virtual classroom"
+  }
+}
